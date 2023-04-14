@@ -1,5 +1,5 @@
 {
-  "name": "pegaintruso",
+  "name": "spycam",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
@@ -9,10 +9,13 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@nestjs/common": "^9.4.0",
     "expo": "~48.0.10",
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
-    "react-native": "0.71.6"
+    "react-native": "0.71.6",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

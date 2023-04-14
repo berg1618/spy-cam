@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "pegaintruso",
-    "slug": "pegaintruso",
+    "name": "spycam",
+    "slug": "spycam",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
