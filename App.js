@@ -7,6 +7,7 @@ export default function App() {
       <View>
         <View>
           <Image source={require("./assets/pagina_incial.png")} />
+          <Text>ou sou claudio</Text>
         </View>
 
         <Button title="Perfil" color="#747070" />
