@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { Button, Image, StyleSheet, Text, View } from "react-native";
-import Login from "./components/Login/";
+import Login from "./components/CadastrarConta/";
 import React from "react";
 export default function App() {
   // style={styles.container}
