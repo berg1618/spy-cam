@@ -1,10 +1,12 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native';
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import Header from './Components/Header';
+import { View, Text, TouchableOpacity, Image } from "react-native";
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
+import Header from "./Components/Header";
+import CustomizedBar from "./Components/CustomizedBar";
 
 const App = () => {
   return (
     <View style={styles.container}>
+      <CustomizedBar />
       <Header />
       <TouchableOpacity style={styles.circleButton}>
         <FontAwesomeIcon name='bell' size={40} color='#413C45' style={{ marginTop: 21, marginHorizontal: 24 }} />
@@ -76,6 +78,5 @@ const styles = {
   },
 
 };
-
 
 export default App;
