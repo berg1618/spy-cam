@@ -16,8 +16,7 @@ const Login = () => {
         />
 
         <View style={styles.formContainer}>
-          <Text>Faça seu cadastro</Text>
-
+          
           <View style={styles.inputs}>
             <Image
               source={require('../../assets/iconNome.png')}
@@ -44,7 +43,7 @@ const Login = () => {
           </TouchableOpacity>
 
           <Text>
-            nao possui cadasto? <Text style={styles.textBold}>cadasre-se</Text>
+            nao possui conta? <Text style={styles.textBold}>cadatsre-se</Text>
           </Text>
          
         </View>
