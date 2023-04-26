@@ -1,17 +1,9 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import * as React from "react";
 
-const YourApp = () => {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-      <Text>Try editing me!??/ 🎉</Text>
-    </View>
-  );
-};
+import PaginaInicial from "./components/PaginaInicial";
 
-export default YourApp; 
+function App() {
+  return <PaginaInicial />;
+}
+
+export default App;
