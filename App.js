@@ -9,9 +9,9 @@ const YourApp = () => {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <Text>Try editing me! 🎉</Text>
+      <Text>Try editing me!??/ 🎉</Text>
     </View>
   );
 };
 
-export default YourApp;
+export default YourApp; 
