@@ -30,9 +30,11 @@ const Header = () => {
   return (
 
     <View style={styles.header}>
-      <Text style={styles.title}>Spy Cam</Text>
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>  Spy Cam</Text>
+      </View>
       <TouchableOpacity onPress={toggleMenu}>
-        <Icon name="menu" size={32} color="#FFFFFF" style={styles.menuIcon} />
+        <Icon name="menu" size={32} color="#FFFFFF" />
       </TouchableOpacity>
       <Animated.View style={containerStyle}>
         <Text style={styles.menuItem}>Exemplo 1</Text>
@@ -45,46 +47,34 @@ const Header = () => {
 };
 
 const styles = {
-  container: {
-    flex: 1,
-    backgroundColor: '#413C45',
-  },
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
     height: 120,
     backgroundColor: 'transparent',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     borderBottomWidth: 2,
     borderBottomColor: '#FFFFFF',
-    position: 'relative',
+    paddingHorizontal: 20,
+  },
+  titleContainer: {
+    flex: 1,
+    alignItems: 'center',
   },
   title: {
-    color: '#fff',
+    color: '#FFFFFF',
+    fontSize: 40,
     fontWeight: 'bold',
-    fontSize: 40,
-    textAlign: 'center',
-    position: 'absolute',
-    bottom: 30,
-    left: 0,
-    right: 0,
-  },
-  menuIcon: {
-    position: 'absolute',
-    top: -15,
-    left: 140,
-    fontSize: 40,
   },
   menuContainer: {
     position: 'absolute',
     top: 120,
     right: 0,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
     padding: 20,
     borderRadius: 10,
   },
   menuItem: {
-    fontSize: 18,
     color: '#000',
     marginBottom: 10,
   }
