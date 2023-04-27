@@ -2,7 +2,7 @@ import { Image, Text, View, TextInput, TouchableOpacity } from "react-native";
 import styles from './styles'
 import React from "react";
 
-const Login = () => {
+const Login = ({navigation}) => {
   return (
     <View style={styles.b}>
       <View>
@@ -50,10 +50,15 @@ const Login = () => {
           <Text>____________________________</Text>
           </View>
 
-          <TouchableOpacity>
-              <Text style={styles.botao}>Login</Text>
+          <TouchableOpacity
+              style={styles.botao}
+              onPress={() => {
+              navigation.navigate("pageInicial");
+            }}
+          >
+            <Text style={styles.textButtonNavigation}>Login</Text>
           </TouchableOpacity>
-
+          
           <Text style={styles.mensagem}>
             Não possui conta? <Text style={styles.textBold}>Cadastre-se</Text>
           </Text>
