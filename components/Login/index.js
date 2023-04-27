@@ -4,46 +4,58 @@ import React from "react";
 
 const Login = () => {
   return (
-    <View>
+    <View style={styles.b}>
       <View>
         <Text style={styles.titleApp}>
           Spy Cam
         </Text>
       </View>
 
-      <Image
+      <Image 
+        style={styles.logo}
         source={require('../../assets/iconReconhecimento.png')}
         />
 
         <View style={styles.formContainer}>
           
-          <View style={styles.inputs}>
+          <Text style={styles.titleContainer}>Faça seu Login</Text>
+          <View style={styles.entrada}>
             <Image
+              style={styles.icon}
               source={require('../../assets/iconNome.png')}
             />
             <TextInput
-              placeholder="nome"
+              style={styles.inputText}
+              placeholder="Nome"
               keyboardType="text"
             />
+          </View>
+          <View> 
+          <Text>____________________________</Text>
           </View>
 
          
-          <View style={styles.inputs}>
+          <View style={styles.entrada}>
             <Image
+              style={styles.icon}
               source={require('../../assets/iconPassword.png')}
             />
             <TextInput
-              placeholder="senha"
+              style={styles.inputText}
+              placeholder="Senha"
               keyboardType="text"
             />
           </View>
+          <View> 
+          <Text>____________________________</Text>
+          </View>
 
           <TouchableOpacity>
-              <Text>Login</Text>
+              <Text style={styles.botao}>Login</Text>
           </TouchableOpacity>
 
-          <Text>
-            nao possui conta? <Text style={styles.textBold}>cadatsre-se</Text>
+          <Text style={styles.mensagem}>
+            Não possui conta? <Text style={styles.textBold}>Cadastre-se</Text>
           </Text>
          
         </View>

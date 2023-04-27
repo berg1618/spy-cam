@@ -1,10 +1,10 @@
 import { Image, Text, View, TextInput, TouchableOpacity } from "react-native";
-import styles from './styles'
+import styles from './styles.js'
 import React from "react";
 
 const CadastrarConta = () => {
   return (
-    <View>
+    <View style={styles.b}>
       <View>
         <Text style={styles.titleApp}>
           Spy Cam
@@ -12,58 +12,81 @@ const CadastrarConta = () => {
       </View>
 
       <Image
+        style={styles.logo}
         source={require('../../assets/iconReconhecimento.png')}
         />
 
         <View style={styles.formContainer}>
-          <Text>Faça seu cadastro</Text>
 
-          <View style={styles.inputs}>
+          <Text style={styles.titleContainer}>Faça seu cadastro</Text>
+          <View style={styles.entrada}>
             <Image
+              style={styles.icon}
               source={require('../../assets/iconNome.png')} 
             />
             <TextInput
-              placeholder="nome"
+              style={styles.inputText}
+              placeholder="Nome"
               keyboardType="text"
             />
           </View>
+          <View> 
+          <Text>____________________________</Text>
+          </View>
 
 
-          <View style={styles.inputs}>
-          <Image 
-           source={require('../../assets/iconEnail.png')}
+          <View style={styles.entrada}>
+          <Image
+            style={styles.icon} 
+            source={require('../../assets/iconEnail.png')}
            />
             <TextInput
+              style={styles.inputText}
               placeholder="Email"
               keyboardType="text"
             />
           </View>
+          <View> 
+          <Text>____________________________</Text>
+          </View>
          
-          <View style={styles.inputs}>
+          <View style={styles.entrada}>
             <Image
+              style={styles.icon}
               source={require('../../assets/iconPassword.png')}
             />
             <TextInput
-              placeholder="senha"
+              style={styles.inputText}
+              placeholder="Senha"
               keyboardType="text"
             />
-          </View><View style={styles.inputs}>
+          </View>
+          <View> 
+          <Text>____________________________</Text>
+          </View>
+
+          <View style={styles.entrada}>
             <Image
+              style={styles.icon}
               source={require('../../assets/iconPassword.png')}
             />
             <TextInput
+              style={styles.inputText}
               placeholder=" Confirme sua senha"
               keyboardType="text"
             />
+          </View>
+          <View> 
+          <Text>____________________________</Text>
           </View>
 
 
 
           <TouchableOpacity>
-              <Text>Cadastre-se</Text>
+              <Text style={styles.botao}>Cadastre-se</Text>
           </TouchableOpacity>
 
-          <Text>
+          <Text style={styles.mensagem}>
             Ja possui conta? <Text style={styles.textBold}>Login</Text>
           </Text>
          
