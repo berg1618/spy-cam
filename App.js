@@ -1,17 +1,22 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import * as React from "react";
+import { NavigationContainer } from '@react-navigation/native';
+import PaginaInicial from "./components/PaginaInicial";
+import Perfil from "./components/Perfil";
+import { useNavigation } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-const YourApp = () => {
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-      <Text>Try editing me!??/ 🎉</Text>
-    </View>
+  <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen name="pageInicial" component={PaginaInicial} />
+      <Stack.Screen name="Perfil" component={Perfil} />
+    </Stack.Navigator>
+  </NavigationContainer>
+  
   );
-};
+}
 
-export default YourApp; 
+export default App;
