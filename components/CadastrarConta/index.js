@@ -95,4 +95,4 @@ const CadastrarConta = () => {
   );
 }
 
-export default CadastrarConta
+export default CadastrarConta;
