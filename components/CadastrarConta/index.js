@@ -2,7 +2,7 @@ import { Image, Text, View, TextInput, TouchableOpacity } from "react-native";
 import styles from './styles.js'
 import React from "react";
 
-const CadastrarConta = () => {
+const CadastrarConta = ({navigation}) => {
   return (
     <View style={styles.b}>
       <View>
@@ -27,7 +27,7 @@ const CadastrarConta = () => {
             <TextInput
               style={styles.inputText}
               placeholder="Nome"
-              keyboardType="text"
+              keyboardType="default"
             />
           </View>
           <View> 
@@ -43,7 +43,7 @@ const CadastrarConta = () => {
             <TextInput
               style={styles.inputText}
               placeholder="Email"
-              keyboardType="text"
+              keyboardType="email-address"
             />
           </View>
           <View> 
@@ -58,7 +58,7 @@ const CadastrarConta = () => {
             <TextInput
               style={styles.inputText}
               placeholder="Senha"
-              keyboardType="text"
+              keyboardType="default"
             />
           </View>
           <View> 
@@ -73,7 +73,7 @@ const CadastrarConta = () => {
             <TextInput
               style={styles.inputText}
               placeholder=" Confirme sua senha"
-              keyboardType="text"
+              keyboardType="default"
             />
           </View>
           <View> 
@@ -86,7 +86,11 @@ const CadastrarConta = () => {
               <Text style={styles.botao}>Cadastre-se</Text>
           </TouchableOpacity>
 
-          <Text style={styles.mensagem}>
+          <Text
+            onPress={() => {
+            navigation.navigate("login")
+          }}
+           style={styles.mensagem}>
             Ja possui conta? <Text style={styles.textBold}>Login</Text>
           </Text>
          

@@ -3,6 +3,8 @@ import React from "react";
 import styles from "./styles";
 
 
+
+
 const PaginaInicial = ({ navigation }) => {
   return (
     <View style={styles.container}>
@@ -29,7 +31,11 @@ const PaginaInicial = ({ navigation }) => {
             <Text style={styles.textButtonNavigation}>Perfil</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.buttonsNavgations}>
+          <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("notificacoes")
+          }}
+          style={styles.buttonsNavgations}>
               <Text style={styles.textButtonNavigation}>Notificações</Text>
           </TouchableOpacity>
 

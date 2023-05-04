@@ -27,7 +27,7 @@ const Login = ({navigation}) => {
             <TextInput
               style={styles.inputText}
               placeholder="Nome"
-              keyboardType="text"
+              keyboardType="default"
             />
           </View>
           <View> 
@@ -43,7 +43,7 @@ const Login = ({navigation}) => {
             <TextInput
               style={styles.inputText}
               placeholder="Senha"
-              keyboardType="text"
+              keyboardType="default"
             />
           </View>
           <View> 
@@ -59,7 +59,12 @@ const Login = ({navigation}) => {
             <Text style={styles.textButtonNavigation}>Login</Text>
           </TouchableOpacity>
           
-          <Text style={styles.mensagem}>
+          
+          <Text
+            onPress={() => {
+            navigation.navigate("cadastrarConta")
+          }}
+           style={styles.mensagem}>
             Não possui conta? <Text style={styles.textBold}>Cadastre-se</Text>
           </Text>
          
