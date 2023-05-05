@@ -1,0 +1,531 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testando o componente de login 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#413C45",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "borderBottomColor": "#fff",
+        "borderBottomWidth": 2,
+        "flexDirection": "row",
+        "height": 87,
+        "justifyContent": "center",
+        "marginTop": 15,
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "color": "#F2F0F4",
+          "fontSize": 40,
+          "fontWeight": "800",
+        }
+      }
+    >
+      Spy Cam
+    </Text>
+    <Image
+      source={
+        {
+          "testUri": "../../../assets/iconMenu.png",
+        }
+      }
+      style={
+        {
+          "height": 29,
+          "left": 60,
+          "position": "relative",
+          "top": 4,
+          "width": 33,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "marginTop": 54,
+      }
+    }
+  >
+    <View>
+      <Image
+        source={
+          {
+            "testUri": "../../../assets/iconReconhecimento.png",
+          }
+        }
+        style={
+          {
+            "height": 60,
+            "width": 60,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        {
+          "backgroundColor": "#F2F0F4",
+          "borderRadius": 10,
+          "marginTop": 54,
+          "paddingBottom": 45,
+          "paddingLeft": 40,
+          "width": "80%",
+        }
+      }
+    >
+      <View
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "#413C45",
+            "borderRadius": 10,
+            "height": 34,
+            "justifyContent": "center",
+            "marginTop": 35,
+            "opacity": 1,
+            "width": "80%",
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#F2F0F4",
+              "fontSize": 16,
+              "fontWeight": "700",
+            }
+          }
+        >
+          Perfil
+        </Text>
+      </View>
+      <View
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "#413C45",
+            "borderRadius": 10,
+            "height": 34,
+            "justifyContent": "center",
+            "marginTop": 35,
+            "opacity": 1,
+            "width": "80%",
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#F2F0F4",
+              "fontSize": 16,
+              "fontWeight": "700",
+            }
+          }
+        >
+          Notificações
+        </Text>
+      </View>
+      <View
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "#413C45",
+            "borderRadius": 10,
+            "height": 34,
+            "justifyContent": "center",
+            "marginTop": 35,
+            "opacity": 1,
+            "width": "80%",
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#F2F0F4",
+              "fontSize": 16,
+              "fontWeight": "700",
+            }
+          }
+        >
+          Cadastrar rosto
+        </Text>
+      </View>
+    </View>
+  </View>
+  <Image
+    source={
+      {
+        "testUri": "../../../assets/iconNotificacao.png",
+      }
+    }
+    style={
+      {
+        "height": 75,
+        "left": 276,
+        "position": "relative",
+        "top": 80,
+        "width": 75,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`testando o componente de pagina inicial 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#413C45",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "borderBottomColor": "#fff",
+        "borderBottomWidth": 2,
+        "flexDirection": "row",
+        "height": 87,
+        "justifyContent": "center",
+        "marginTop": 15,
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "color": "#F2F0F4",
+          "fontSize": 40,
+          "fontWeight": "800",
+        }
+      }
+    >
+      Spy Cam
+    </Text>
+    <Image
+      source={
+        {
+          "testUri": "../../../assets/iconMenu.png",
+        }
+      }
+      style={
+        {
+          "height": 29,
+          "left": 60,
+          "position": "relative",
+          "top": 4,
+          "width": 33,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "marginTop": 54,
+      }
+    }
+  >
+    <View>
+      <Image
+        source={
+          {
+            "testUri": "../../../assets/iconReconhecimento.png",
+          }
+        }
+        style={
+          {
+            "height": 60,
+            "width": 60,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        {
+          "backgroundColor": "#F2F0F4",
+          "borderRadius": 10,
+          "marginTop": 54,
+          "paddingBottom": 45,
+          "paddingLeft": 40,
+          "width": "80%",
+        }
+      }
+    >
+      <View
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "#413C45",
+            "borderRadius": 10,
+            "height": 34,
+            "justifyContent": "center",
+            "marginTop": 35,
+            "opacity": 1,
+            "width": "80%",
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#F2F0F4",
+              "fontSize": 16,
+              "fontWeight": "700",
+            }
+          }
+        >
+          Perfil
+        </Text>
+      </View>
+      <View
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "#413C45",
+            "borderRadius": 10,
+            "height": 34,
+            "justifyContent": "center",
+            "marginTop": 35,
+            "opacity": 1,
+            "width": "80%",
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#F2F0F4",
+              "fontSize": 16,
+              "fontWeight": "700",
+            }
+          }
+        >
+          Notificações
+        </Text>
+      </View>
+      <View
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "#413C45",
+            "borderRadius": 10,
+            "height": 34,
+            "justifyContent": "center",
+            "marginTop": 35,
+            "opacity": 1,
+            "width": "80%",
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#F2F0F4",
+              "fontSize": 16,
+              "fontWeight": "700",
+            }
+          }
+        >
+          Cadastrar rosto
+        </Text>
+      </View>
+    </View>
+  </View>
+  <Image
+    source={
+      {
+        "testUri": "../../../assets/iconNotificacao.png",
+      }
+    }
+    style={
+      {
+        "height": 75,
+        "left": 276,
+        "position": "relative",
+        "top": 80,
+        "width": 75,
+      }
+    }
+  />
+</View>
+`;
