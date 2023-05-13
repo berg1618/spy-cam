@@ -3,7 +3,12 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
     b:{
         height: '100%',
-        backgroundColor: '#413C45',
+        backgroundColor: '#413C45'
+    },
+    scroll: {
+        width: '100%',
+    },
+    containerCenter: {
         margin: 'auto',
         alignItems:'center',
     },
@@ -28,7 +33,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 10,
         padding:15,
-
+        marginBottom: 20,
     },
     titleContainer:{
         fontSize:20,

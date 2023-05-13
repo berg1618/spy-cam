@@ -4,6 +4,11 @@ const styles = StyleSheet.create({
     b:{
         height: '100%',
         backgroundColor: '#413C45',
+    },
+    scroll: {
+        width: '100%'
+    },
+    containerCenter: {
         margin: 'auto',
         alignItems:'center',
     },
@@ -22,7 +27,8 @@ const styles = StyleSheet.create({
     },
     formContainer: {
         width:'90%',
-        height:'40%',
+        // height:'40%',
+        marginBottom: 20,
         backgroundColor:'#F2F0F4',
         position: 'relative',
         display: 'flex',
