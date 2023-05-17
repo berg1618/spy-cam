@@ -1,6 +1,7 @@
 import { Image, Text, View, TextInput, TouchableOpacity, ScrollView, SafeAreaView, Alert } from "react-native";
 import styles from './styles.js'
 import React, {useState} from "react";
+import {cadastrarUsuarioBanco} from "../../api.js"
 
 const CadastrarConta = ({navigation}) => {
   const [nome, onChangeNome] = useState("")
@@ -25,12 +26,17 @@ const CadastrarConta = ({navigation}) => {
     if (senha != confSenha) {
       return createTwoButtonAlert("Erro!", "as senhas que você digitou não são iguais!")
     }
+
+    // cadastrar usuario
+    const a = await cadastrarUsuarioBanco(nome, email, senha)
+    console.log(a.data)
     
-      navigation.navigate("pageInicial");
+      // navigation.navigate("pageInicial");
     }
     catch (err) {
       // ### essa msg pode ser substituida por uma mais personalizada
       createTwoButtonAlert("problemas : -( ", "")
+      console.log(err)
     }
   }
 
