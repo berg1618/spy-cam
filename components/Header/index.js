@@ -1,16 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { View, Text, TouchableOpacity, Animated, Image} from 'react-native';
 import { useNavigation } from "@react-navigation/native";
-
-
-
-
-
-
-
-
-
-
+import Icon from 'react-native-vector-icons/Feather';
+import styles from './style';
 
 
 const Header = () => {
@@ -70,3 +62,5 @@ const Header = () => {
     );
   };
   
+
+  export default Header;

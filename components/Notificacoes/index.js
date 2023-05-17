@@ -7,9 +7,11 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Image
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
+import Header from '../Header';
 // import styles from "./styles";
 
 
@@ -43,6 +45,9 @@ const DATA = [
 //vai rederizar um item
 const Item = ({item}) => (
     <TouchableOpacity style={styles.botao}>
+       <Image
+        source={require('../../assets/iconrosto.png')}
+      />
       <Text>{item.title}</Text>
     </TouchableOpacity>
   );
@@ -68,6 +73,7 @@ const Notificacoes = () => {
       return (
        
         <SafeAreaView style={styles.container}>
+            <Header/>
             <View style={styles.mainnotificacao}>
             <Text style={styles.titleApp}>Notificações</Text>
                 <FlatList

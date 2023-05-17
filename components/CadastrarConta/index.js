@@ -31,7 +31,7 @@ const CadastrarConta = ({navigation}) => {
     const a = await cadastrarUsuarioBanco(nome, email, senha)
     console.log(a.data)
     
-      // navigation.navigate("pageInicial");
+      navigation.navigate("pageInicial");
     }
     catch (err) {
       // ### essa msg pode ser substituida por uma mais personalizada
