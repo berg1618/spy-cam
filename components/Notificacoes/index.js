@@ -12,7 +12,7 @@ import {
 
 import { useNavigation } from '@react-navigation/native';
 import Header from '../Header';
-// import styles from "./styles";
+import styles from "./styles";
 
 
 
@@ -39,16 +39,47 @@ const DATA = [
       id: '58694a0f-3da1-471f-bd96-145571e29d72',
       title: 'claudio robou o carro',
     },
+    { 
+      
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      title: 'claudio robou o carro',
+    },
+    { 
+      
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      title: 'claudio robou o carro',
+    },
+    { 
+      
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      title: 'claudio robou o carro',
+    },
+    { 
+      
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      title: 'claudio robou o carro',
+    },
+    { 
+      
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      title: 'claudio robou o carro',
+    },
+    { 
+      
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      title: 'claudio robou o carro',
+    },
+    
   ];
 
 
 //vai rederizar um item
 const Item = ({item}) => (
     <TouchableOpacity style={styles.botao}>
-       <Image
+       <Image style={styles.imgNotificacao}
         source={require('../../assets/iconrosto.png')}
       />
-      <Text>{item.title}</Text>
+      <Text style={styles.textItem}>{item.title}</Text>
     </TouchableOpacity>
   );
 
@@ -89,25 +120,5 @@ const Notificacoes = () => {
 }
 
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      marginTop: StatusBar.currentHeight || 0,
-      
-    },
-    item: {
-      padding: 20,
-      marginVertical: 8,
-      marginHorizontal: 16,
-    },
-    title: {
-      fontSize: 32,
-    },
-    botao: {
-      backgroundColor: '#eee',
-      margin: 10,
-      padding: 10
-    },
-    mainnotificacao:{}
-  });
+
 export default Notificacoes
