@@ -8,7 +8,7 @@ const styles =StyleSheet.create({
         height: 150,
         backgroundColor: '#413C45',
         borderBottomWidth: 2,
-        borderBottomColor: '#FFFFFF',
+        borderBottomColor: '#F2F0F4',
         position: 'relative'
     },
     title :{
