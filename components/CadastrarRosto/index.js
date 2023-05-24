@@ -1,36 +1,49 @@
-import React, { useState } from 'react';
-import { Text, TouchableOpacity, View, StyleSheet, Image } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Text, TouchableOpacity, View, StyleSheet, Image, Button } from 'react-native';
 import Header from '../Header';
-import { launchImageLibrary } from 'react-native-image-picker';
-import * as ImagePicker from 'react-native-image-picker';
+import * as ImagePicker from 'expo-image-picker';
+
 
 const CadastrarRosto = () => {
 
-  const [fotoGaleria, setFotoGaleria] = useState();
+  const [permissaoGaleria, setPermissaoGaleria] = useState(null);
+  const [ imagem, setImagem ] = useState (null);
 
-  let options = {
-    saveToPhotos: true,
-    mediaType: 'photo',
+  useEffect(()=>{
+    (async () => {
+      const statusGaleria = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      setPermissaoGaleria(statusGaleria.status === 'granted')
+    })();
+  }, []);
+
+  const selecionarImagem = async () =>{
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4,3],
+      quality:1,
+    });
+
+    if(!result.canceled){
+      setImagem(result.assets[0].uri);
+    }
   };
 
-  const abrirGaleria = async () => {
-    const result = await launchImageLibrary(options);
-    setFotoGaleria(result.assets[0].uri);
-  };
+  if (permissaoGaleria === false){
+    return <Text>Sem Permissão Concedida à Galeria</Text>
+  }
 
   return (
     <View>
       <Header />
-      <View style={styles.container}>
-        <TouchableOpacity onPress={abrirGaleria}>
+      <View style={styles.container}></View>
+        <TouchableOpacity onPress={() => selecionarImagem()}>
           <Text style={styles.textoBotao}>Abrir Galeria</Text>
         </TouchableOpacity>
-        <Image style={styles.imageStyle} source={{ uri: fotoGaleria }} />
+        {imagem && <Image source={{ uri: imagem }} style={{ width: 150, height: 150 }} />}
       </View>
-    </View>
-
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -46,7 +59,7 @@ const styles = StyleSheet.create({
     height: 30,
     borderRadius: 10,
     marginTop: 30,
-    textAlign: 'center'
+    textAlign: 'center',
   },
 });
 
