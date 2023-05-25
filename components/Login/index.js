@@ -1,23 +1,23 @@
 import { Image, Text, View, TextInput, TouchableOpacity, Alert, ScrollView, SafeAreaView } from "react-native";
 import styles from './styles'
-import React, {useState} from "react";
-import { async } from "rxjs";
+import React, { useState } from "react";
+import CustomizedBar from "../CustomizedBar/CustomizedBar";
 
-const Login = ({navigation}) => {
+const Login = ({ navigation }) => {
   const [nome, onChangeNome] = useState("")
   const [senha, onChangeSenha] = useState("")
   const [encript, setEncript] = useState("")
 
 
   const createTwoButtonAlert = (title, msg) =>
-  Alert.alert(title? title: 'Erro de autenticação!', msg, [
-    {text: 'OK', onPress: () => console.log('OK Pressed')},
-  ]);
+    Alert.alert(title ? title : 'Erro de autenticação!', msg, [
+      { text: 'OK', onPress: () => console.log('OK Pressed') },
+    ]);
 
-  
-    // #### nao deu certo
+
+  // #### nao deu certo
   const ecriptSenha = (senha) => {
-      senha.split('').forEach((p) => {
+    senha.split('').forEach((p) => {
       encript += p.replace(p, "*")
     })
   }
@@ -25,9 +25,9 @@ const Login = ({navigation}) => {
   const fazerLogin = async (nome, senha) => {
     try {
       // exibir alerta caso nome e senha estejam vazios
-     if (!nome || !senha) {
-      return createTwoButtonAlert("", "Preencha todos os campos!")
-     }
+      if (!nome || !senha) {
+        return createTwoButtonAlert("", "Preencha todos os campos!")
+      }
 
       navigation.navigate("pageInicial");
     }
@@ -41,19 +41,20 @@ const Login = ({navigation}) => {
     <SafeAreaView style={styles.b}>
       <ScrollView style={styles.scroll}>
         <View style={styles.containerCenter}>
-        <View>
-          <Text style={styles.titleApp}>
-            Spy Cam
-          </Text>
-        </View>
+          <CustomizedBar />
+          <View>
+            <Text style={styles.titleApp}>
+              Spy Cam
+            </Text>
+          </View>
 
-        <Image 
-          style={styles.logo}
-          source={require('../../assets/iconReconhecimento.png')}
+          <Image
+            style={styles.logo}
+            source={require('../../assets/iconReconhecimento.png')}
           />
 
           <View style={styles.formContainer}>
-            
+
             <Text style={styles.titleContainer}>Faça seu Login</Text>
             <View style={styles.entrada}>
               <Image
@@ -68,11 +69,11 @@ const Login = ({navigation}) => {
                 value={nome}
               />
             </View>
-            <View> 
-            <Text>____________________________</Text>
+            <View>
+              <Text>____________________________</Text>
             </View>
 
-          
+
             <View style={styles.entrada}>
               <Image
                 style={styles.icon}
@@ -86,28 +87,28 @@ const Login = ({navigation}) => {
                 value={senha}
               />
             </View>
-            <View> 
-            <Text>____________________________</Text>
+            <View>
+              <Text>____________________________</Text>
             </View>
 
             <TouchableOpacity
-                style={styles.botao}
-                onPress={() => {
+              style={styles.botao}
+              onPress={() => {
                 fazerLogin(nome, senha)
               }}
             >
               <Text style={styles.textButtonNavigation}>Login</Text>
             </TouchableOpacity>
-            
-            
+
+
             <Text
               onPress={() => {
-              navigation.navigate("cadastrarConta")
-            }}
-            style={styles.mensagem}>
+                navigation.navigate("cadastrarConta")
+              }}
+              style={styles.mensagem}>
               Não possui conta? <Text style={styles.textBold}>Cadastre-se</Text>
             </Text>
-          
+
           </View>
         </View>
       </ScrollView>

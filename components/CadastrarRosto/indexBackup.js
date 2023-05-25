@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, TextInput, TouchableOpacity, View, Image, Alert } from 'react-native';
+import { Text, TextInput, TouchableOpacity, View, Image } from 'react-native';
 import styles from "./styles";
 import Header from '../Header';
 import CustomizedBar from '../CustomizedBar/CustomizedBar';
@@ -9,7 +9,7 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 const CadastrarRosto = () => {
 
-  const [permissaoGaleria, setPermissaoGaleria] = useState(null);
+  /*const [permissaoGaleria, setPermissaoGaleria] = useState(null);
   const [imagem, setImagem] = useState(null);
 
   useEffect(() => {
@@ -34,14 +34,8 @@ const CadastrarRosto = () => {
 
   if (permissaoGaleria === false) {
     return <Text>Sem Permissão Concedida à Galeria</Text>
-  }
+  }*/
 
-const AlertaConfirma =() => {
-    Alert.alert(
-      'Foto Cadastrada',
-      'Sua Foto foi cadastrada com sucesso.'
-    );
-  }
   return (
     <View style={styles.container}>
       <CustomizedBar />
@@ -71,13 +65,10 @@ const AlertaConfirma =() => {
               keyboardType="default"/>
             </View>
             <View style={styles.anotherLine} /> 
-              <TouchableOpacity onPress={() => selecionarImagem()}>
+              <TouchableOpacity>
                 <Text style={styles.botao}><Image source={require('../../assets/ImageFile.png')} style={{ width: 20, height: 20, paddingLeft: 5 }} />Escolher Arquivos</Text>
               </TouchableOpacity>
-              <View style={styles.containerImagem}>
-                {imagem && <Image source={{ uri: imagem }} style={{ width: 70, height: 70 }} />}
-                </View>
-              <TouchableOpacity onPress = {AlertaConfirma}>
+              <TouchableOpacity>
                 <Text style={styles.botaoCadastrar}>Cadastrar Novo Rosto</Text>
               </TouchableOpacity>
       </View>

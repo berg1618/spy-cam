@@ -15,8 +15,12 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="login" component={Login} />
-        <Stack.Screen name="cadastrarConta" component={CadastrarConta} />
+        <Stack.Screen name="login" component={Login}
+          options={{ title: "login", headerShown: false }}
+        />
+        <Stack.Screen name="cadastrarConta" component={CadastrarConta}
+          options={{ title: "cadastrarConta", headerShown: false }}
+        />
         <Stack.Screen name="pageInicial" component={PaginaInicial}
           options={{ title: "pageInicial", headerShown: false }}
         />

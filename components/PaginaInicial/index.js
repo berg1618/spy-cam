@@ -1,17 +1,19 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import React from "react";
 import styles from "./styles";
+import CustomizedBar from "../CustomizedBar/CustomizedBar";
 
 const PaginaInicial = ({ navigation }) => {
   return (
     <View style={styles.container}>
+      <CustomizedBar />
       <View style={styles.header}>
-        <Text style={styles.titleApp}>Spy Cam</Text>
-        <Image
-          style={styles.Modal}
-          source={require("../../assets/iconMenu.png")} />
+        <Text style={styles.title}>Spy Cam</Text>
       </View>
-
+      <TouchableOpacity style={styles.circleButton}>
+        <FontAwesomeIcon name='bell' size={40} color='#413C45' style={{ marginTop: 21, marginHorizontal: 24 }} />
+      </TouchableOpacity>
       <View style={styles.main}>
         <View>
           <Image style={styles.imgLogo} source={require("../../assets/iconReconhecimento.png")} />
@@ -48,8 +50,6 @@ const PaginaInicial = ({ navigation }) => {
         </View>
 
       </View>
-
-      <Image style={styles.iconNotifications} source={require("../../assets/iconNotificacao.png")} />
     </View>
   );
 };
