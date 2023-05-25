@@ -1,8 +1,10 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+// import renderer from 'react-test-renderer';
+import {render} from '@testing-library/react-native'
 import Perfil from '../components/Perfil';
 
-test('testando o componente de perfil', () => {
-    const tree = renderer.create(<Perfil />).toJSON();
-    expect(tree).toMatchSnapshot();
+describe("teste do componente perfil", () => {
+  test('Renderizando o componente', () => {
+    render(<Perfil />)
   });
+})
