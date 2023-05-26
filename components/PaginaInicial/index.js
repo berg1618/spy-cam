@@ -1,20 +1,19 @@
-import { Button, Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import React from "react";
 import styles from "./styles";
-
-
-
+import CustomizedBar from "../CustomizedBar/CustomizedBar";
 
 const PaginaInicial = ({ navigation }) => {
   return (
     <View style={styles.container}>
+      <CustomizedBar />
       <View style={styles.header}>
-        <Text style={styles.titleApp}>Spy Cam</Text>
-        <Image
-        style={styles.Modal}
-        source={require("../../assets/iconMenu.png")} />
+        <Text style={styles.title}>Spy Cam</Text>
       </View>
-
+      <TouchableOpacity style={styles.circleButton}>
+        <FontAwesomeIcon name='bell' size={40} color='#413C45' style={{ marginTop: 21, marginHorizontal: 24 }} />
+      </TouchableOpacity>
       <View style={styles.main}>
         <View>
           <Image style={styles.imgLogo} source={require("../../assets/iconReconhecimento.png")} />
@@ -23,8 +22,8 @@ const PaginaInicial = ({ navigation }) => {
         <View style={styles.optionsNavgation}>
 
           <TouchableOpacity
-              style={styles.buttonsNavgations}
-              onPress={() => {
+            style={styles.buttonsNavgations}
+            onPress={() => {
               navigation.navigate("Perfil");
             }}
           >
@@ -32,32 +31,27 @@ const PaginaInicial = ({ navigation }) => {
           </TouchableOpacity>
 
           <TouchableOpacity
-          onPress={() => {
-            navigation.navigate("notificacoes")
-          }}
-          style={styles.buttonsNavgations}>
-              <Text style={styles.textButtonNavigation}>Notificações</Text>
+            onPress={() => {
+              navigation.navigate("notificacoes")
+            }}
+            style={styles.buttonsNavgations}>
+            <Text style={styles.textButtonNavigation}>Notificações</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.buttonsNavgations}>
-              <Text style={styles.textButtonNavigation}>Cadastrar rosto</Text>
+          <TouchableOpacity
+            style={styles.buttonsNavgations}
+            onPress={() => {
+              navigation.navigate("CadastrarRosto");
+            }}
+          >
+            <Text style={styles.textButtonNavigation}>Cadastrar Rosto</Text>
           </TouchableOpacity>
 
         </View>
-       
-      </View>
 
-      <Image style={styles.iconNotifications} source={require("../../assets/iconNotificacao.png")} />
+      </View>
     </View>
   );
 };
-
-// function PaginaInicialStack() {
-//   return (
-//     <Stack.Navigator>
-//       <Stack.Screen name="Perfil" component={Perfil} />
-//     </Stack.Navigator>
-//   );
-// }
 
 export default PaginaInicial;

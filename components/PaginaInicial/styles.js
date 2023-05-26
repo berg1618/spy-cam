@@ -1,6 +1,26 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 130,
+    backgroundColor: '#413C45',
+    borderBottomWidth: 2,
+    borderBottomColor: '#F2F0F4',
+    position: 'relative'
+  },
+  title: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 40,
+    textAlign: 'center',
+    position: 'absolute',
+    bottom: 30,
+    left: 0,
+    right: 0,
+  },
   container: {
     flex: 1,
     backgroundColor: "#413C45"
@@ -17,15 +37,6 @@ const styles = StyleSheet.create({
     top: 4,
     width: 33,
     height: 29
-  },
-  header: {
-    marginTop: 15,
-    height: 87,
-    flexDirection: "row",
-    alignItems: "center",
-    borderBottomColor: '#fff',
-    borderBottomWidth: 2,
-    justifyContent: "center"
   },
   main: {
     alignItems: "center",
@@ -60,14 +71,17 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "700"
   },
-
-  iconNotifications: {
-    width: 75,
-    height: 75,
-    position: "relative",
-    left: 276,
-    top: 80
-  }
+  circleButton: {
+    position: 'absolute',
+    bottom: 30,
+    right: 20,
+    width: 90,
+    height: 90,
+    borderRadius: 45,
+    borderWidth: 1,
+    borderColor: '#413C45',
+    backgroundColor: '#FFFFFF',
+  },
 });
 
 

@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./components/Login";
 import CadastrarConta from "./components/CadastrarConta";
 import Notificacoes from "./components/Notificacoes";
+import CadastrarRosto from "./components/CadastrarRosto";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,17 +15,24 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="login" component={Login} />
-         <Stack.Screen name="cadastrarConta" component={CadastrarConta} />
+        <Stack.Screen name="login" component={Login}
+          options={{ title: "login", headerShown: false }}
+        />
+        <Stack.Screen name="cadastrarConta" component={CadastrarConta}
+          options={{ title: "cadastrarConta", headerShown: false }}
+        />
         <Stack.Screen name="pageInicial" component={PaginaInicial}
-          options={{title: "pageInicial", headerShown: false}}
+          options={{ title: "pageInicial", headerShown: false }}
         />
         <Stack.Screen name="Perfil" component={Perfil}
-        options={{title: "Perfil", headerShown: false}}
+          options={{ title: "Perfil", headerShown: false }}
         />
         <Stack.Screen name="notificacoes" component={Notificacoes}
-        options={{title: "notificacoes", headerShown: false }}
-         />
+          options={{ title: "notificacoes", headerShown: false }}
+        />
+        <Stack.Screen name="CadastrarRosto" component={CadastrarRosto}
+          options={{ title: "CadastrarRosto", headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
