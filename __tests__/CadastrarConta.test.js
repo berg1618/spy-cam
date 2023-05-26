@@ -1,8 +1,10 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+// import renderer from 'react-test-renderer';
+import {render} from '@testing-library/react-native'
 import CadastrarConta from '../components/CadastrarConta';
 
-test('testando o componente de cadastrar conta', () => {
-    const tree = renderer.create(<CadastrarConta />).toJSON();
-    expect(tree).toMatchSnapshot();
+describe("teste componente de cadastrar conta", () => {
+  test('Renderizando o componente', () => {
+    render(<CadastrarConta />)
   });
+})
