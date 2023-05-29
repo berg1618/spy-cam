@@ -11,7 +11,9 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFilesAfterEnv": ["@testing-library/jest-native/extend-expect"]
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ]
   },
   "dependencies": {
     "@expo/webpack-config": "^18.0.1",
@@ -21,6 +23,7 @@
     "@react-navigation/native-stack": "^6.9.12",
     "@types/react": "~18.0.27",
     "axios": "^1.4.0",
+    "dotenv": "^16.0.3",
     "expo": "~48.0.10",
     "expo-image-picker": "^14.1.1",
     "expo-navigation-bar": "^2.1.1",

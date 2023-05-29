@@ -1,7 +1,8 @@
 import axios from "axios"
+import { async } from "rxjs"
 
 const api = axios.create({
-  baseURL: 'http://10.48.7.111:8013',
+  baseURL: 'http://192.168.56.1:8013',
   timeout: 5000,
   headers: {'X-Custom-Header': 'foobar'}
 })
@@ -16,6 +17,12 @@ const cadastrarUsuarioBanco = async (nome, email, senha) => {
       return req
 }
 
+
+const cadastrarPerfilBanco = async (FormData) => {
+  return await api.post('pessoa', FormData)
+}
+
 export {
-    cadastrarUsuarioBanco
+    cadastrarUsuarioBanco,
+    cadastrarPerfilBanco
 }
