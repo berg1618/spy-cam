@@ -11,7 +11,9 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFilesAfterEnv": ["@testing-library/jest-native/extend-expect"]
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ]
   },
   "dependencies": {
     "@expo/webpack-config": "^18.0.1",
@@ -27,6 +29,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.71.8",
+    "react-native-config": "^1.5.1",
     "react-native-safe-area-context": "4.5.0",
     "react-native-screens": "^3.20.0",
     "react-native-vector-icons": "^9.2.0",
