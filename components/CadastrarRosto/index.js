@@ -11,6 +11,34 @@ const CadastrarRosto = () => {
 
   const [permissaoGaleria, setPermissaoGaleria] = useState(null);
   const [imagem, setImagem] = useState(null);
+  const [nomePessoa, onChangeNome] = useState(null);
+
+  const cadastrarPerfil = async () => {
+    const formData = new FormData()
+
+    formData.append('nome_pessoa', nomePessoa)
+
+    // pegar o nome da imagem
+    // const fileName = imagem[0].uri.substring(imagem[0].uri.lastIndexOf('/' + 1), imagem[0].uri.length)
+    const separaOsBagaco = imagem.split(':')[1]
+    // const fileName = imagem.substring(imagem.lastIndexOf('/' + 1), imagem.length)
+    const fileName  = separaOsBagaco.split(',')[0]
+    console.log(fileName)
+
+    console.log(fileName)
+    formData.append('fotos', JSON.parse(JSON.stringify({
+      name: fileName,
+      uri: imagem,
+      type: 'image/png'
+    })))
+
+    // console.log(formData)
+    
+    const req = await cadastrarPerfilBanco(formData)
+    console.log(req)
+  }
+
+
 
   useEffect(() => {
     (async () => {
