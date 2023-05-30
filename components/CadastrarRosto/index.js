@@ -7,6 +7,7 @@ import * as ImagePicker from 'expo-image-picker';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 import { cadastrarPerfilBanco } from '../../api';
+import { convertBase64ToFile } from '../../utils/image';
 
 
 const CadastrarRosto = () => {
@@ -15,26 +16,15 @@ const CadastrarRosto = () => {
   const [imagem, setImagem] = useState(null);
   const [nomePessoa, onChangeNome] = useState(null);
 
+
+
+  // cadastrar perfil
   const cadastrarPerfil = async () => {
+
     const formData = new FormData()
 
-    formData.append('nome_pessoa', nomePessoa)
-
-    // pegar o nome da imagem
-    // const fileName = imagem[0].uri.substring(imagem[0].uri.lastIndexOf('/' + 1), imagem[0].uri.length)
-    const separaOsBagaco = imagem.split(':')[1]
-    // const fileName = imagem.substring(imagem.lastIndexOf('/' + 1), imagem.length)
-    const fileName  = separaOsBagaco.split(',')[0]
-    console.log(fileName)
-
-    console.log(fileName)
-    formData.append('fotos', JSON.parse(JSON.stringify({
-      name: fileName,
-      uri: imagem,
-      type: 'image/png'
-    })))
-
-    // console.log(formData)
+    formData.append('nome_pessoa', nomePessoa)   
+    formData.append('fotos', convertBase64ToFile(imagem))
     
     const req = await cadastrarPerfilBanco(formData)
     console.log(req)
@@ -51,7 +41,7 @@ const CadastrarRosto = () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
-      base64: false, // #### tirar se nao der certo ########
+      base64: false,
       aspect: [4, 3],
       quality: 1,
     });
