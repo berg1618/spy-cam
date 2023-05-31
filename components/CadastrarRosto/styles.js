@@ -117,7 +117,6 @@ const styles = StyleSheet.create({
     inputText: {
         marginLeft: 15,
         bottom: 10,
-        color: '#F2F0F4',
         position: 'relative',
     },
     botao: {

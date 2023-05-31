@@ -6,6 +6,9 @@ import CustomizedBar from '../CustomizedBar/CustomizedBar';
 import * as ImagePicker from 'expo-image-picker';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
+import { cadastrarPerfilBanco } from '../../api';
+import { convertBase64ToFile } from '../../utils/image';
+
 
 const CadastrarRosto = () => {
 
@@ -13,32 +16,19 @@ const CadastrarRosto = () => {
   const [imagem, setImagem] = useState(null);
   const [nomePessoa, onChangeNome] = useState(null);
 
+
+
+  // cadastrar perfil
   const cadastrarPerfil = async () => {
+
     const formData = new FormData()
 
-    formData.append('nome_pessoa', nomePessoa)
-
-    // pegar o nome da imagem
-    // const fileName = imagem[0].uri.substring(imagem[0].uri.lastIndexOf('/' + 1), imagem[0].uri.length)
-    const separaOsBagaco = imagem.split(':')[1]
-    // const fileName = imagem.substring(imagem.lastIndexOf('/' + 1), imagem.length)
-    const fileName  = separaOsBagaco.split(',')[0]
-    console.log(fileName)
-
-    console.log(fileName)
-    formData.append('fotos', JSON.parse(JSON.stringify({
-      name: fileName,
-      uri: imagem,
-      type: 'image/png'
-    })))
-
-    // console.log(formData)
+    formData.append('nome_pessoa', nomePessoa)   
+    formData.append('fotos', convertBase64ToFile(imagem))
     
     const req = await cadastrarPerfilBanco(formData)
     console.log(req)
   }
-
-
 
   useEffect(() => {
     (async () => {
@@ -51,6 +41,7 @@ const CadastrarRosto = () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
+      base64: false,
       aspect: [4, 3],
       quality: 1,
     });
@@ -70,6 +61,7 @@ const AlertaConfirma =() => {
       'Sua Foto foi cadastrada com sucesso.'
     );
   }
+
   return (
     <View style={styles.container}>
       <CustomizedBar />
@@ -90,13 +82,15 @@ const AlertaConfirma =() => {
       </View>
       <View style={styles.anotherContentContainer}> 
       <View style={styles.entrada}>
-        <Image
+        <Image 
           style={styles.icon}
           source={require('../../assets/iconNome.png')}/>
             <TextInput
               style={styles.inputText}
               placeholder="Nome"
-              keyboardType="default"/>
+              keyboardType="default"
+              onChangeText={onChangeNome}
+              value={nomePessoa}/>
             </View>
             <View style={styles.anotherLine} /> 
               <TouchableOpacity onPress={() => selecionarImagem()}>
@@ -105,7 +99,10 @@ const AlertaConfirma =() => {
               <View style={styles.containerImagem}>
                 {imagem && <Image source={{ uri: imagem }} style={{ width: 70, height: 70 }} />}
                 </View>
-              <TouchableOpacity onPress = {AlertaConfirma}>
+              <TouchableOpacity onPress = {() => {
+                AlertaConfirma()
+                cadastrarPerfil()
+              }}>
                 <Text style={styles.botaoCadastrar}>Cadastrar Novo Rosto</Text>
               </TouchableOpacity>
       </View>

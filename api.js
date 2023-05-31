@@ -19,6 +19,11 @@ const cadastrarUsuarioBanco = async (nome, email, senha) => {
   return req
 }
 
+
+const cadastrarPerfilBanco = async (FormData) => {
+  return await api.post('pessoa', FormData)
+}
+
 export {
   cadastrarUsuarioBanco
 }
