@@ -2,8 +2,11 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        height: '100%',
         backgroundColor: '#413C45',
+      },
+      main: {
+        alignItems: 'center'
       },
       header: {
         flexDirection: 'row',
@@ -81,7 +84,8 @@ const styles = StyleSheet.create({
       },
       circleButton: {
         position: 'absolute',
-        bottom: 30,
+        // bottom: 20,
+        top: 660,
         right: 20,
         width: 90,
         height: 90,
@@ -92,6 +96,7 @@ const styles = StyleSheet.create({
       },
       anotherContentContainer: {
         backgroundColor: '#FFFFFF',
+        position: 'relative', // tentar alinhar sino
         borderRadius: 10,
         margin: 40,
         marginVertical: 200,
@@ -151,6 +156,10 @@ const styles = StyleSheet.create({
       bottom: 333,
       left: 130,
       alignItems: 'center',
+    },
+    listImages: {
+      marginLeft: 20,
+      marginTop: -100
     }
 });
 

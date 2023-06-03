@@ -4,7 +4,7 @@ import Config from 'react-native-config';
 const Url = Config.URL;
 
 const api = axios.create({
-  baseURL: Url,
+  baseURL: 'http://192.168.56.1:8013',
   timeout: 5000,
   headers: { 'X-Custom-Header': 'foobar' }
 })
@@ -25,5 +25,6 @@ const cadastrarPerfilBanco = async (FormData) => {
 }
 
 export {
-  cadastrarUsuarioBanco
+  cadastrarUsuarioBanco,
+  cadastrarPerfilBanco
 }
