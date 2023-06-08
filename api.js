@@ -3,25 +3,37 @@ import Config from 'react-native-config';
 
 const Url = Config.URL;
 
+console.log(Url);
+
 const api = axios.create({
-  baseURL: 'http://192.168.56.1:8013',
-  timeout: 5000,
+  baseURL: 'http://10.49.6.99:8013',
+  timeout: 100000,
   headers: { 'X-Custom-Header': 'foobar' }
 })
 
 
-const cadastrarUsuarioBanco = async (nome, email, senha) => {
-  const req = await api.post('/usuarios/cadastro', {
-    nome: nome,
-    email: email,
-    senha: senha
-  })
+  console.log(Url)
+  let req;
+  try {
+    req = await api.post('/usuarios/cadastro', {
+      nome: nome,
+      email: email,
+      senha: senha
+    })
+  } catch (err) {
+    console.log(err)
+  }
   return req
 }
 
 
 const cadastrarPerfilBanco = async (FormData) => {
-  return await api.post('pessoa', FormData)
+  try {
+    const res = await api.post('pessoa', FormData)
+    return res;
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 export {
