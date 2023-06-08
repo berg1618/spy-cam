@@ -11,7 +11,7 @@ const api = axios.create({
 
 
 const cadastrarUsuarioBanco = async (nome, email, senha) => {
-  const req = await api.post('usuarios', {
+  const req = await api.post('/usuarios/cadastro', {
     nome: nome,
     email: email,
     senha: senha
