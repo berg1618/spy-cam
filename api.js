@@ -12,6 +12,7 @@ const api = axios.create({
 })
 
 
+const cadastrarUsuarioBanco = async (nome, email, senha) => {
   console.log(Url)
   let req;
   try {
