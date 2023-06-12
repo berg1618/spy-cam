@@ -20,10 +20,10 @@ const cadastrarUsuarioBanco = async (nome, email, senha) => {
       email: email,
       senha: senha
     })
+     return req
   } catch (err) {
     return err
   }
-  return req
 }
 
 
