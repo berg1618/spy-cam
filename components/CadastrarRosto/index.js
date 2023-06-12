@@ -7,8 +7,8 @@ import * as ImagePicker from 'expo-image-picker';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 import { cadastrarPerfilBanco } from '../../api';
-import { convertBase64ToFile } from '../../utils/image';
 
+// const FormData = require('form-data')
 
 
 //vai rederizar um item
@@ -16,9 +16,7 @@ const Item = ({item}) => (
     <Image style={{width: 70, height: 70, margin: 5}}
       source={{uri: item}}
     />
-
 );
-
 
 const CadastrarRosto = () => {
 
@@ -37,8 +35,6 @@ const CadastrarRosto = () => {
     );
   };
 
-
-
   // cadastrar perfil
   const cadastrarPerfil = async () => {
 
@@ -49,11 +45,15 @@ const CadastrarRosto = () => {
     // formData.append('fotos', convertBase64ToFile(imagem))
 
     arrayImages.forEach((image) => {
-      formData.append('fotos', convertBase64ToFile(image))
+      formData.append('fotos', {
+        name: 'image.png',
+        uri: image,
+        type: 'image/png'
+      })
     })
     
     const req = await cadastrarPerfilBanco(formData)
-    console.log(req)
+    console.log(req.status)
   }
 
   useEffect(() => {
@@ -149,6 +149,8 @@ const AlertaConfirma =() => {
           <View
              style={styles.listImages}>
             <FlatList
+              horizontal={false}
+              numColumns={3}
               data={arrayImages}
               renderItem={renderItem}
               keyExtractor={item => item}
@@ -160,7 +162,6 @@ const AlertaConfirma =() => {
 
         </View>
       
-
       </ScrollView>
     </SafeAreaView >
 
