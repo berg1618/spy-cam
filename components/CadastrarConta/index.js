@@ -29,7 +29,9 @@ const CadastrarConta = ({navigation}) => {
 
     // cadastrar usuario
     const a = await cadastrarUsuarioBanco(nome, email, senha)
-    console.log(a.data)
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err))
+    // console.log(a)
     
       navigation.navigate("pageInicial");
     }

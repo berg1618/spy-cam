@@ -159,7 +159,8 @@ const styles = StyleSheet.create({
     },
     listImages: {
       marginLeft: 20,
-      marginTop: -100
+      marginTop: -80,
+      width: '90%'
     }
 });
 
