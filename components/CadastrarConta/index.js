@@ -82,7 +82,7 @@ const CadastrarConta = ({navigation}) => {
               <View style={styles.entrada}>
               <Image
                 style={styles.icon} 
-                source={require('../../assets/iconEnail.png')}
+                source={require('../../assets/iconEMail.png')}
               />
                 <TextInput
                   style={styles.inputText}
