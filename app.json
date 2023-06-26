@@ -11,6 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#413C45"
     },
+    
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -20,6 +21,18 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png"
+      },
+      "config": {
+        "permissions": ["ACCESS_COARSE_LOCATION", 
+                          "ACCESS_FINE_LOCATION",
+                          "ACCESS_NETWORK_STATE",
+                          "ACCESS_WIFI_STATE",
+                          "FOREGROUND_SERVICE_CONNECTED_DEVICE",
+                          "FOREGROUND_SERVICE_DATA_SYNC",
+                          "INTERNET",
+                          "REQUEST_COMPANION_PROFILE_COMPUTER", 
+                          "REQUEST_COMPANION_PROFILE_NEARBY_DEVICE_STREAMING"
+                        ]
       }
     },
     "web": {
