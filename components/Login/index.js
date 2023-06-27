@@ -33,7 +33,6 @@ const Login = ({ navigation }) => {
       const token = response.data.token;
 
       await AsyncStorage.setItem('token', token);
-
       //console.log("Token:", token); bruh
 
       navigation.navigate("pageInicial");

@@ -3,14 +3,12 @@ import Config from 'react-native-config';
 
 const Url = Config.URL;
 
-
 // cole a url que foi gerada pelo ngrok
 const api = axios.create({
   baseURL: 'https://ae55-45-170-116-169.ngrok-free.app',
   timeout: 5000,
   headers: { 'X-Custom-Header': 'foobar' }
 })
-
 
 const cadastrarUsuarioBanco = async (nome, email, senha) => {
   let req;
