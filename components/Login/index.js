@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import CustomizedBar from "../CustomizedBar/CustomizedBar";
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { fazerLoginn } from "../../api";
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -28,12 +29,13 @@ const Login = ({ navigation }) => {
     }
 
     try {
-      const response = await axios.post('/auth/login', { email, senha });
+      const response = await fazerLoginn(email,senha)
 
-      const token = response.data.token;
+      const token = response.data.access_token;
 
-      await AsyncStorage.setItem('token', token);
-      //console.log("Token:", token); bruh
+      await AsyncStorage.setItem('access_token', token);
+      
+      console.log("Token:", token);
 
       navigation.navigate("pageInicial");
     } catch (error) {
