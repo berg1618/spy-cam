@@ -1,59 +1,45 @@
+import { Image, Text, View, TextInput, TouchableOpacity, Alert, ScrollView, SafeAreaView } from "react-native";
+import { styles } from "./styles";
+import React, { useState } from "react";
+import CustomizedBar from "../CustomizedBar/CustomizedBar";
 import axios from 'axios';
-import { Alert, Image, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import React, { useState } from 'react';
-import CustomizedBar from '../CustomizedBar/CustomizedBar';
-import styles from './styles';
-import { cadastrarPerfilBanco } from '../../api';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = ({ navigation }) => {
-  const [email, onChangeEmail] = useState('');
-  const [senha, onChangeSenha] = useState('');
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
   const [encript, setEncript] = useState("")
 
   const createTwoButtonAlert = (title, msg) =>
-    Alert.alert(title || 'Erro de autenticação!', msg, [{ text: 'OK', onPress: () => console.log('OK Pressed') }]);
+  Alert.alert(title ? title : 'Erro de autenticação!', msg, [
+    { text: 'OK', onPress: () => console.log('OK Pressed') },
+  ]);
 
   // #### nao deu certo
   const ecriptSenha = (senha) => {
-    senha.split('').forEach((p) => {
-      encript += p.replace(p, "*")
-    })
+  senha.split('').forEach((p) => {
+    encript += p.replace(p, "*")
+  })
   }
-
-  const fazerLogin = async (email, senha) => {
-    try {
-      if (!email.trim() || !senha.trim()) {
-        return createTwoButtonAlert('', 'Preencha todos os campos!');
-      }
-
-      const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!isEmail.test(email)) {
-        return createTwoButtonAlert('Erro', 'Informe um email válido!');
-      }
-
-      const usuariosResponse = await axios.get('/cadastro');
-
-      const usuarios = usuariosResponse.data;
-      const usuario = usuarios.find((user) => user.email === email);
   
-      if (!usuario) {
-        return createTwoButtonAlert('Erro', 'Login não encontrado!');
-      }
+  const fazerLogin = async () => {
+    if (!email || !senha) {
+      return createTwoButtonAlert("", "Preencha todos os campos!");
+    }
 
-      // const response = await axios.post('/auth/login', {
-      //   email: email,
-      //   senha: senha,
-      // });
+    try {
+      const response = await axios.post('/auth/login', { email, senha });
 
-      // const token = response.data.access_token;
+      const token = response.data.token;
 
-      // console.log(`email: ${email}, senha: ${senha}, token: ${token}`);
+      await AsyncStorage.setItem('token', token);
 
-      // await cadastrarPerfilBanco(formData, token);
+      //console.log("Token:", token); bruh
 
-      navigation.navigate('pageInicial');
-    } catch (err) {
-      createTwoButtonAlert('Problemas :-(', '');
+      navigation.navigate("pageInicial");
+    } catch (error) {
+      console.error(error);
+      createTwoButtonAlert("", "Erro ;-;");
     }
   };
 
@@ -70,51 +56,38 @@ const Login = ({ navigation }) => {
 
           <View style={styles.formContainer}>
             <Text style={styles.titleContainer}>Faça seu Login</Text>
-            <View style={styles.entrada}>
+
+            <View style={styles.inputContainer}>
               <Image style={styles.icon} source={require('../../assets/iconEmail.png')} />
               <TextInput
                 style={styles.inputText}
                 placeholder="Email"
-                keyboardType="email-address"
+                placeholderTextColor="#8B8989"
                 autoCapitalize="none"
-                onChangeText={onChangeEmail}
+                keyboardType="email-address"
+                onChangeText={setEmail}
                 value={email}
               />
             </View>
-            <View>
-              <Text>____________________________</Text>
-            </View>
 
-            <View style={styles.entrada}>
+            <View style={styles.inputContainer}>
               <Image style={styles.icon} source={require('../../assets/iconPassword.png')} />
               <TextInput
                 style={styles.inputText}
                 placeholder="Senha"
+                placeholderTextColor="#8B8989"
+                secureTextEntry
                 autoCapitalize="none"
-                secureTextEntry={true}
-                onChangeText={onChangeSenha}
+                onChangeText={setSenha}
                 value={senha}
               />
             </View>
-            <View>
-              <Text>____________________________</Text>
-            </View>
 
-            <TouchableOpacity
-              style={styles.botao}
-              onPress={() => {
-                fazerLogin(email, senha);
-              }}
-            >
+            <TouchableOpacity style={styles.botao} onPress={fazerLogin}>
               <Text style={styles.textButtonNavigation}>Login</Text>
             </TouchableOpacity>
 
-            <Text
-              onPress={() => {
-                navigation.navigate('cadastrarConta');
-              }}
-              style={styles.mensagem}
-            >
+            <Text onPress={() => navigation.navigate("cadastrarConta")} style={styles.mensagem}>
               Não possui conta? <Text style={styles.textBold}>Cadastre-se</Text>
             </Text>
           </View>

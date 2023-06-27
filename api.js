@@ -6,7 +6,7 @@ const Url = Config.URL;
 
 // cole a url que foi gerada pelo ngrok
 const api = axios.create({
-  baseURL: 'https://8a50-45-170-116-173.ngrok-free.app',
+  baseURL: 'https://ae55-45-170-116-169.ngrok-free.app',
   timeout: 5000,
   headers: { 'X-Custom-Header': 'foobar' }
 })
