@@ -1,18 +1,17 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, TouchableOpacity, Animated, Image } from 'react-native';
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
 import Icon from 'react-native-vector-icons/Feather';
+import AsyncStorage from '@react-native-async-storage/async-storage'; // Import AsyncStorage
 import styles from './style';
-
+import authMiddleware from '../../middleware/authMiddleware';
 
 const Header = () => {
   const [menuVisible, setMenuVisible] = useState(false);
-  // const [animation] = useState(new Animated.Value(0));
   const animation = useRef(new Animated.Value(0)).current;
 
-  const toggleMenu = ({ navigation }) => {
+  const toggleMenu = () => {
     setMenuVisible(!menuVisible);
-    // console.log(menuVisible)
     Animated.timing(animation, {
       toValue: menuVisible ? 0 : 1,
       duration: 250,
@@ -32,13 +31,23 @@ const Header = () => {
     ],
   };
 
-
-  // habilitar a navegação por paginas
   const navigation = useNavigation();
+  const isFocused = useIsFocused();
 
+  useEffect(() => {
+    if (isFocused) {
+      setMenuVisible(false);
+    }
+  }, [isFocused]);
+
+  const handleLogout = async () => {
+    // Clear AsyncStorage or perform any necessary cleanup
+    await AsyncStorage.clear();
+    // Navigate to the login page
+    navigation.navigate("login");
+  };
 
   return (
-
     <View style={styles.header}>
       <Text style={styles.title}>Spy Cam</Text>
       <TouchableOpacity onPress={toggleMenu}>
@@ -66,9 +75,7 @@ const Header = () => {
           }}
           style={styles.menuItem}>Cadastrar Rosto</Text>
         <Text
-          onPress={() => {
-            navigation.navigate("login")
-          }}
+          onPress={handleLogout} // Call handleLogout on "Sair" press
           style={styles.menuItem}>Sair</Text>
       </Animated.View>
     </View>

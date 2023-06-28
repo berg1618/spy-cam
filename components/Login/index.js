@@ -2,14 +2,14 @@ import { Image, Text, View, TextInput, TouchableOpacity, Alert, ScrollView, Safe
 import { styles } from "./styles";
 import React, { useState } from "react";
 import CustomizedBar from "../CustomizedBar/CustomizedBar";
-import axios from 'axios';
+//import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { fazerLoginn } from "../../api";
+import { storeToken } from "../../api";
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [encript, setEncript] = useState("")
+  //const [encript, setEncript] = useState("")
 
   const createTwoButtonAlert = (title, msg) =>
   Alert.alert(title ? title : 'Erro de autenticação!', msg, [
@@ -17,11 +17,11 @@ const Login = ({ navigation }) => {
   ]);
 
   // #### nao deu certo
-  const ecriptSenha = (senha) => {
-  senha.split('').forEach((p) => {
-    encript += p.replace(p, "*")
-  })
-  }
+  // const ecriptSenha = (senha) => {
+  // senha.split('').forEach((p) => {
+  //   encript += p.replace(p, "*")
+  // })
+  // }
   
   const fazerLogin = async () => {
     if (!email || !senha) {
@@ -29,7 +29,7 @@ const Login = ({ navigation }) => {
     }
 
     try {
-      const response = await fazerLoginn(email,senha)
+      const response = await storeToken(email,senha)
 
       const token = response.data.access_token;
 

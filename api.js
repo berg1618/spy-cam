@@ -5,7 +5,7 @@ const Url = Config.URL;
 
 // cole a url que foi gerada pelo ngrok
 const api = axios.create({
-  baseURL: 'https://9bf7-200-137-5-186.ngrok-free.app',
+  baseURL: 'https://53ad-200-137-5-186.ngrok-free.app',
   timeout: 5000,
   headers: { 'X-Custom-Header': 'foobar' }
 })
@@ -40,7 +40,7 @@ const cadastrarPerfilBanco = async (FormData, accessToken) => {
   }
 };
 
-const fazerLoginn = async (email, senha) => {
+const storeToken = async (email, senha) => {
   try {
     let req;
 
@@ -57,5 +57,5 @@ const fazerLoginn = async (email, senha) => {
 export {
   cadastrarUsuarioBanco,
   cadastrarPerfilBanco,
-  fazerLoginn
+  storeToken
 }
