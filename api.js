@@ -1,12 +1,12 @@
 import axios from "axios"
-import Config from 'react-native-config';
+// import Config from 'react-native-config';
 
-const Url = Config.URL;
+// const Url = Config.URL;
 
 
 // cole a url que foi gerada pelo ngrok
 const api = axios.create({
-  baseURL: 'https://1c2c-2804-4764-20e-4e00-4d27-2cc1-807f-4719.ngrok-free.app',
+  baseURL: 'https://ab1e-2804-4764-20e-4e00-6552-5507-dba9-ae24.ngrok-free.app',
   timeout: 5000,
   headers: { 'X-Custom-Header': 'foobar' }
 })
@@ -30,7 +30,7 @@ const cadastrarUsuarioBanco = async (nome, email, senha) => {
 const cadastrarPerfilBanco = async (FormData) => {
   try {
     let req;
-    const bearerToken = 'Bearer ' + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1ZnlAIiwic3ViIjoxLCJpYXQiOjE2ODY1OTUyNzksImV4cCI6MTY4NjU5ODg3OX0.fo8kMyDPbMbXVoJ2Y62bnMPv2oNcMMpixCMsAdueGG0"
+    const bearerToken = 'Bearer ' + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InplQGdtYWlsLmNvbSIsInN1YiI6MiwiaWF0IjoxNjg4MTQ2NzUzLCJleHAiOjE2ODgxNTAzNTN9.sjVnxsznQrbr5j6COIKg425GgKm8_TczlG-9U6AW3IM"
     req = await api.post('/pessoa', FormData, {
       headers: {
         'Content-Type': 'multipart/form-data',

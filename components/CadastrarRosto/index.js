@@ -8,8 +8,7 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 import { cadastrarPerfilBanco } from '../../api';
 
-// const FormData = require('form-data')
-
+// nada
 
 //vai rederizar um item
 const Item = ({item}) => (
@@ -42,15 +41,19 @@ const CadastrarRosto = () => {
 
     formData.append('nome_pessoa', nomePessoa)   
 
-    // formData.append('fotos', convertBase64ToFile(imagem))
-
-    arrayImages.forEach((image) => {
-      formData.append('fotos', {
-        name: 'image.png',
-        uri: image,
-        type: 'image/png'
-      })
+    formData.append('fotos', {
+        name: 'image.jpg',
+        uri: imagem,
+        type: 'image/jpg'
     })
+
+    // arrayImages.forEach((image) => {
+    //   formData.append('fotos', {
+    //     name: 'image.png',
+    //     uri: image,
+    //     type: 'image/png'
+    //   })
+    // })
     
     const req = await cadastrarPerfilBanco(formData)
     console.log(req.status)
@@ -73,7 +76,7 @@ const CadastrarRosto = () => {
     });
 
     if (!result.canceled) {
-      setArrayImages([...arrayImages, result.assets[0].uri])
+      // setArrayImages([...arrayImages, result.assets[0].uri])
       setImagem(result.assets[0].uri);
     }
   };
@@ -130,10 +133,6 @@ const AlertaConfirma =() => {
                   <Text style={styles.botao}><Image source={require('../../assets/ImageFile.png')} style={{ width: 20, height: 20, paddingLeft: 5 }} />Escolher Arquivos</Text>
                 </TouchableOpacity>
 
-                {/* <View style={styles.containerImagem}>
-                  {imagem && <Image source={{ uri: imagem }} style={{ width: 70, height: 70 }} />}
-                </View> */}
-
                 <TouchableOpacity onPress = {() => {
                   AlertaConfirma()
                   cadastrarPerfil()
@@ -144,13 +143,13 @@ const AlertaConfirma =() => {
 
         {/* exibir este componente apenas se tiver imagens*/}
         {/* caso contrario, exibir uma view vazia */}
-        {
+        {/* {
           arrayImages.length > 0?
           <View
              style={styles.listImages}>
             <FlatList
               horizontal={false}
-              numColumns={3}
+              image      numColumns={3}
               data={arrayImages}
               renderItem={renderItem}
               keyExtractor={item => item}
@@ -158,7 +157,11 @@ const AlertaConfirma =() => {
            </View>
           :
           <View></View>
-        }
+        } */}
+
+        <View style={styles.listImage}>
+          {imagem && <Image source={{ uri: imagem }} style={styles.img} />}
+        </View>
 
         </View>
       
