@@ -2,7 +2,6 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import PaginaInicial from "./components/PaginaInicial";
 import Perfil from "./components/Perfil";
-import { useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./components/Login";
 import CadastrarConta from "./components/CadastrarConta";
