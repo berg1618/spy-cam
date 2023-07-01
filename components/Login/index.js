@@ -3,6 +3,7 @@ import styles from './styles'
 import React, { useState } from "react";
 import CustomizedBar from "../CustomizedBar/CustomizedBar";
 
+
 const Login = ({ navigation }) => {
   const [nome, onChangeNome] = useState("")
   const [senha, onChangeSenha] = useState("")
