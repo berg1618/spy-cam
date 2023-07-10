@@ -161,6 +161,12 @@ const styles = StyleSheet.create({
       marginLeft: 20,
       marginTop: -80,
       width: '90%'
+    },
+
+    img: {
+      width: 80,
+      height: 80
+
     }
 });
 

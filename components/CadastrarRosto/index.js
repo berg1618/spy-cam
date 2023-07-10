@@ -159,7 +159,7 @@ const AlertaConfirma =() => {
           <View></View>
         } */}
 
-        <View style={styles.listImage}>
+        <View style={styles.listImages}>
           {imagem && <Image source={{ uri: imagem }} style={styles.img} />}
         </View>
 

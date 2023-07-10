@@ -8,7 +8,7 @@ import axios from "axios"
 
 // cole a url que foi gerada pelo ngrok
 const api = axios.create({
-  baseURL: 'https://fb6b-2804-4764-20e-4e00-7d7f-4452-3f44-b817.ngrok-free.app',
+  baseURL: 'http://10.48.8.190:8013',
   timeout: 5000,
   headers: { 'X-Custom-Header': 'foobar' }
 })
@@ -32,7 +32,7 @@ const cadastrarUsuarioBanco = async (nome, email, senha) => {
 const cadastrarPerfilBanco = async (FormData) => {
   try {
     let req;
-    const bearerToken = 'Bearer ' + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InplQGdtYWlsLmNvbSIsInN1YiI6MiwiaWF0IjoxNjg4MjI4ODU4LCJleHAiOjE2ODgyMzI0NTh9.0GmnycvsXUBNxIdFxpvOczNhbwYehyFYVvqrsJQRIf4"
+    const bearerToken = 'Bearer ' + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InplZGFidXJyYUBnbWFpbC5jb20iLCJzdWIiOjYsImlhdCI6MTY4ODQwOTI2OSwiZXhwIjoxNjg4NDEyODY5fQ.JOSAq-k5nNCtkcNu2J1h1OGQXGVxccGPtX6zNXswmxs"
     req = await api.post('/pessoa', FormData, {
       headers: {
         'Content-Type': 'multipart/form-data',
@@ -45,10 +45,21 @@ const cadastrarPerfilBanco = async (FormData) => {
   }
 }
 
+const listarNotificacoes = async () => {
+  let req;
+  try {
+    req = await api.get('/registro')
+     return req
+  } catch (err) {
+    return err
+  }
+}
+
 
 
 
 export {
   cadastrarUsuarioBanco,
   cadastrarPerfilBanco,
+  listarNotificacoes
 }
