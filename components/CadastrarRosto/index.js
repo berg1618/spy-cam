@@ -56,7 +56,8 @@ const CadastrarRosto = () => {
     // })
     
     const req = await cadastrarPerfilBanco(formData)
-    console.log(req.status)
+    
+    console.log(req)
   }
 
   useEffect(() => {
