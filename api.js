@@ -8,7 +8,7 @@ import axios from "axios"
 
 // cole a url que foi gerada pelo ngrok
 const api = axios.create({
-  baseURL: 'http://10.48.8.190:8013',
+  baseURL: 'http://10.48.8.215:8013',
   timeout: 5000,
   headers: { 'X-Custom-Header': 'foobar' }
 })

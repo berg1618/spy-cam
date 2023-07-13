@@ -11,7 +11,7 @@ Notifications.setNotificationHandler({
 });
 
 
-const url = 'http://10.48.8.190:8013/registro/watch';
+const url = 'http://10.48.8.215:8013/registro/watch';
 const source = new EventSource(url);
 
 

@@ -15,6 +15,8 @@ import { useNavigation } from '@react-navigation/native';
 import Header from '../Header';
 import styles from "./styles";
 
+const moment = require('moment');
+
 
 
 //vai rederizar um item
@@ -23,8 +25,10 @@ const Item = ({item}) => (
        <Image style={styles.imgNotificacao}
         source={require('../../assets/iconrosto.png')}
       />
-      <Text style={styles.textItem}>{item.mensagem}</Text>
-      {/* <Text style={styles.textItem}>{item.createdAt}</Text> */}
+      <View style={styles.textContainer}>
+        <Text style={styles.dataNotificacao}>{item.createdAt}</Text>
+        <Text style={styles.textItem}>{item.mensagem}</Text>
+      </View>
     </TouchableOpacity>
   );
 
@@ -34,11 +38,24 @@ const Notificacoes = () => {
 
     const [selectedId, setSelectedId] = useState();
     const [dados, setDados] = useState(null);
+    const [dadosData, setDadosData] = useState([]);
+
 
   
     useEffect(() => {
       const list = async () => {
+        
+        // const newItem = 'item 3';
+        // const newItems = [...items, newItem];
+        // setItems(newItems);
+
         const a = await listarNotificacoes()
+
+        a.data.forEach((i) => {
+          let dataAmericana = i.createdAt
+          let dataBrasileira = moment(dataAmericana).format('DD/MM HH:mm:ss');
+          i.createdAt = dataBrasileira
+        })
         setDados(a.data)
       }
       list()
@@ -61,8 +78,6 @@ const Notificacoes = () => {
       return (
        
         <SafeAreaView style={styles.container}>
-          <ScrollView>
-            <View>
               <Header/>
               <View style={styles.mainnotificacao}>
               <Text style={styles.titleApp}>Notificações</Text>
@@ -73,8 +88,7 @@ const Notificacoes = () => {
                   extraData={selectedId}
               />
               </View>
-            </View>
-            </ScrollView>
+           
         </SafeAreaView> 
       );
 }

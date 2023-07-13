@@ -94,7 +94,6 @@ const AlertaConfirma =() => {
 
   return (
     <SafeAreaView style={styles.container}>
-       <ScrollView>
         <View>
         <CustomizedBar />
         <Header />
@@ -165,7 +164,6 @@ const AlertaConfirma =() => {
 
         </View>
       
-      </ScrollView>
     </SafeAreaView >
 
   );
