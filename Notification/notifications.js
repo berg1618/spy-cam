@@ -19,7 +19,8 @@ export const CreatNotification = () => {
   source.addEventListener("message", (event) => {
     // console.log('-->',event.data)
     const data = JSON.parse(event.data);
-    // console.log(data.data[0].mensagem)
+    console.log(data.data)
+    
     
     if (data.data.length > 0) {
       Notifications.scheduleNotificationAsync({
