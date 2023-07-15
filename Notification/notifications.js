@@ -11,7 +11,7 @@ Notifications.setNotificationHandler({
 });
 
 
-const url = 'https://fb6b-2804-4764-20e-4e00-7d7f-4452-3f44-b817.ngrok-free.app/registro/watch';
+const url = 'https://64a7-2804-4764-20e-4e00-d0e7-8f8d-3e8-e603.ngrok-free.app/registro/watch';
 const source = new EventSource(url);
 
 
