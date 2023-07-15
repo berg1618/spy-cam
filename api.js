@@ -32,7 +32,7 @@ const cadastrarUsuarioBanco = async (nome, email, senha) => {
 const cadastrarPerfilBanco = async (FormData) => {
   try {
     let req;
-    const bearerToken = 'Bearer ' + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InplZGFidXJyYUBnbWFpbC5jb20iLCJzdWIiOjYsImlhdCI6MTY4ODQwOTI2OSwiZXhwIjoxNjg4NDEyODY5fQ.JOSAq-k5nNCtkcNu2J1h1OGQXGVxccGPtX6zNXswmxs"
+    const bearerToken = 'Bearer ' + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InplZGFidXJyYUBnbWFpbC5jb20iLCJzdWIiOjEsImlhdCI6MTY4OTM2MzA3NywiZXhwIjoxNjg5MzY2Njc3fQ.ibgOyZ2y1o7a2eFaLDmZjTeiCdjT81noPepWtyAEs64"
     req = await api.post('/pessoa', FormData, {
       headers: {
         'Content-Type': 'multipart/form-data',
