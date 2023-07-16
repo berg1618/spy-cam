@@ -11,7 +11,7 @@ Notifications.setNotificationHandler({
 });
 
 
-const url = 'http://10.48.8.215:8013/registro/watch';
+const url = 'https://7377-45-170-116-175.ngrok-free.app/registro/watch';
 const source = new EventSource(url);
 
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, TextInput, TouchableOpacity, View, Image, Alert, SafeAreaView, FlatList, ScrollView } from 'react-native';
+import { Text, TextInput, TouchableOpacity, View, Image, Alert, SafeAreaView, ScrollView, Modal, StyleSheet } from 'react-native';
 import styles from "./styles";
 import Header from '../Header';
 import CustomizedBar from '../CustomizedBar/CustomizedBar';
@@ -8,61 +8,47 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 import { cadastrarPerfilBanco } from '../../api';
 
-// nada
-
-//vai rederizar um item
-const Item = ({item}) => (
-    <Image style={{width: 70, height: 70, margin: 5}}
-      source={{uri: item}}
-    />
+const Item = ({ item }) => (
+  <Image style={{ width: 70, height: 70, margin: 5 }} source={{ uri: item }} />
 );
 
 const CadastrarRosto = () => {
-
   const [permissaoGaleria, setPermissaoGaleria] = useState(null);
   const [imagem, setImagem] = useState(null);
-  const [arrayImages, setArrayImages] = useState([])
+  const [arrayImages, setArrayImages] = useState([]);
   const [nomePessoa, onChangeNome] = useState(null);
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
-
-    // rederezar a imagem
-  const renderItem = ({item}) => {
-    return (
-      <Item
-        item={item}
-       />
-    );
+  const renderItem = ({ item }) => {
+    return <Item item={item} />;
   };
 
-  // cadastrar perfil
+  const handleConfirmation = () => {
+    setShowConfirmation(false);
+  };
+
+  const handleCancel = () => {
+    setImagem(null);
+    setShowConfirmation(false);
+  };
+
   const cadastrarPerfil = async () => {
-
-    const formData = new FormData()
-
-    formData.append('nome_pessoa', nomePessoa)   
+    const formData = new FormData();
+    formData.append('nome_pessoa', nomePessoa);
 
     formData.append('fotos', {
-        name: 'image.jpg',
-        uri: imagem,
-        type: 'image/jpg'
-    })
+      name: 'image.jpg',
+      uri: imagem,
+      type: 'image/jpg'
+    });
 
-    // arrayImages.forEach((image) => {
-    //   formData.append('fotos', {
-    //     name: 'image.png',
-    //     uri: image,
-    //     type: 'image/png'
-    //   })
-    // })
-    
-    const req = await cadastrarPerfilBanco(formData)
-    console.log(req.status)
-  }
+    const req = await cadastrarPerfilBanco(formData);
+  };
 
   useEffect(() => {
     (async () => {
       const statusGaleria = await ImagePicker.requestMediaLibraryPermissionsAsync();
-      setPermissaoGaleria(statusGaleria.status === 'granted')
+      setPermissaoGaleria(statusGaleria.status === 'granted');
     })();
   }, []);
 
@@ -76,98 +62,101 @@ const CadastrarRosto = () => {
     });
 
     if (!result.canceled) {
-      // setArrayImages([...arrayImages, result.assets[0].uri])
       setImagem(result.assets[0].uri);
+      setShowConfirmation(true);
     }
   };
 
   if (permissaoGaleria === false) {
-    return <Text>Sem Permissão Concedida à Galeria</Text>
+    return <Text>Sem Permissão Concedida à Galeria</Text>;
   }
 
-const AlertaConfirma =() => {
+  const AlertaConfirma = () => {
+    if (!nomePessoa) {
+      Alert.alert('Nome Vazio', 'Informe um nome.');
+      return;
+    }
+
+    if (!imagem) {
+      Alert.alert('Sem imagem selecionada', 'Selecione uma imagem.');
+      return;
+    }
+
     Alert.alert(
       'Foto Cadastrada',
       'Sua Foto foi cadastrada com sucesso.'
     );
-  }
+    cadastrarPerfil();
+  };
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View>
-        <CustomizedBar />
-        <Header />
+          <CustomizedBar />
+          <Header />
 
-        <TouchableOpacity style={styles.circleButton}>
-          <FontAwesomeIcon name='bell' size={40} color='#413C45' style={{ marginTop: 21, marginHorizontal: 24 }} />
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.circleButton}>
+            <FontAwesomeIcon name='bell' size={40} color='#413C45' style={{ marginTop: 21, marginHorizontal: 24 }} />
+          </TouchableOpacity>
 
-        <Text style={styles.newTitle}>Cadastrar Rosto</Text>
-        <View style={styles.line} />
+          <Text style={styles.newTitle}>Cadastrar Rosto</Text>
+          <View style={styles.line} />
 
-        <View style={styles.contentContainer}>
-          <View style={{ backgroundColor: '#FFFFFF', borderTopLeftRadius: 30, borderTopRightRadius: 30, borderBottomLeftRadius: 30, borderBottomRightRadius: 30 }}>
-            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center' }}>
-              <Image source={require('../../assets/iconrosto.png')} style={{ width: 80, height: 80 }} />
-            </TouchableOpacity>
-            <Text style={styles.anotherTitle}>Maria</Text>
-            <View style={styles.anotherLine} />
+          <View style={styles.contentContainer}>
+            <View style={{ backgroundColor: '#FFFFFF', borderTopLeftRadius: 30, borderTopRightRadius: 30, borderBottomLeftRadius: 30, borderBottomRightRadius: 30 }}>
+              <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center' }}>
+                <Image source={require('../../assets/iconrosto.png')} style={{ width: 80, height: 80 }} />
+              </TouchableOpacity>
+              <Text style={styles.anotherTitle}>Maria</Text>
+              <View style={styles.anotherLine} />
+            </View>
           </View>
-        </View>
-        
-        <View style={styles.anotherContentContainer}> 
-        <View style={styles.entrada}>
-          <Image 
-            style={styles.icon}
-            source={require('../../assets/iconNome.png')}/>
+
+          <View style={styles.anotherContentContainer}>
+            <View style={styles.entrada}>
+              <Image style={styles.icon} source={require('../../assets/iconNome.png')} />
               <TextInput
                 style={styles.inputText}
                 placeholder="Nome"
                 keyboardType="default"
                 onChangeText={onChangeNome}
-                value={nomePessoa}/>
+                value={nomePessoa}
+              />
+            </View>
+            <View style={styles.anotherLine} />
+            <TouchableOpacity onPress={() => selecionarImagem()}>
+              <Text style={styles.botao}><Image source={require('../../assets/ImageFile.png')} style={{ width: 20, height: 20, paddingLeft: 5 }} />Escolher Arquivos</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={AlertaConfirma}>
+              <Text style={styles.botaoCadastrar}>Cadastrar Novo Rosto</Text>
+            </TouchableOpacity>
+          </View>
+
+          <Modal
+            visible={showConfirmation}
+            transparent={true}
+            animationType="fade"
+          >
+            <View style={styles.modal}>
+              <View style={styles.containerModal}>
+                {imagem && <Image source={{ uri: imagem }} style={styles.imagemModal} />}
+                <Text style={styles.textoModal}>Deseja usar a foto escolhida?</Text>
+                <View style={styles.botaoContainer}>
+                  <TouchableOpacity onPress={handleConfirmation} style={styles.botaoModal}>
+                    <Text style={styles.textoBotao}>Sim</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={handleCancel} style={styles.botaoModal}>
+                    <Text style={styles.textoBotao}>Não</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
-              <View style={styles.anotherLine} /> 
-                <TouchableOpacity onPress={() => selecionarImagem()}>
-                  <Text style={styles.botao}><Image source={require('../../assets/ImageFile.png')} style={{ width: 20, height: 20, paddingLeft: 5 }} />Escolher Arquivos</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity onPress = {() => {
-                  AlertaConfirma()
-                  cadastrarPerfil()
-                }}>
-                  <Text style={styles.botaoCadastrar}>Cadastrar Novo Rosto</Text>
-                </TouchableOpacity>
+            </View>
+          </Modal>
         </View>
-
-        {/* exibir este componente apenas se tiver imagens*/}
-        {/* caso contrario, exibir uma view vazia */}
-        {/* {
-          arrayImages.length > 0?
-          <View
-             style={styles.listImages}>
-            <FlatList
-              horizontal={false}
-              image      numColumns={3}
-              data={arrayImages}
-              renderItem={renderItem}
-              keyExtractor={item => item}
-            />
-           </View>
-          :
-          <View></View>
-        } */}
-
-        <View style={styles.listImages}>
-          {imagem && <Image source={{ uri: imagem }} style={styles.img} />}
-        </View>
-
-        </View>
-        </ScrollView>
-      
-    </SafeAreaView >
-
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

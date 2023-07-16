@@ -3,7 +3,7 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import styles from "./styles";
 import Header from '../Header';
 import CustomizedBar from '../CustomizedBar/CustomizedBar';
-
+import PerfilFlatlist from '../PerfilFlatlist/PerfilFlatlist';
 
 const Perfil = () => {
   return (
@@ -22,6 +22,7 @@ const Perfil = () => {
           </TouchableOpacity>
           <Text style={styles.anotherTitle}>Maria</Text>
           <View style={styles.anotherLine} />
+          <PerfilFlatlist />
         </View>
       </View>
 
