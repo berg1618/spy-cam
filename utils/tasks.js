@@ -15,8 +15,6 @@ const TASK_GET_NOTIFICATION = 'getNotification'
 TaskManager.defineTask(TASK_GET_NOTIFICATION,() => {
     try {
         TaskGetNotifications()
-        // return data? BackgroundFetch.BackgroundFetchResult.NewData : BackgroundFetch.BackgroundFetchResult.NoData
-        // return BackgroundFetch.BackgroundFetchResult.NewData;
     }
     catch (err) {
         BackgroundFetch.BackgroundFetchResult.Failed

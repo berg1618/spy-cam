@@ -8,19 +8,11 @@ import { storeToken } from "../../api";
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  //const [encript, setEncript] = useState("")
 
   const createTwoButtonAlert = (title, msg) =>
     Alert.alert(title ? title : 'Erro de autenticação!', msg, [
       { text: 'OK' },
     ]);
-
-  // #### nao deu certo
-  // const ecriptSenha = (senha) => {
-  // senha.split('').forEach((p) => {
-  //   encript += p.replace(p, "*")
-  // })
-  // }
 
   const fazerLogin = async () => {
     if (!email || !senha) {

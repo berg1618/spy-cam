@@ -10,19 +10,8 @@ import CadastrarRosto from "./components/CadastrarRosto";
 
 import { CreatNotification } from "./Notification/notifications";
 
-import { register } from "./utils/tasks";
-
-
 
 const Stack = createNativeStackNavigator();
-
-
-// const registerTesk = () => {
-//   register()
-//   .then(() => console.log("task registrada"))
-//   .catch(() => console.log('falha ao registrar'))
-// }
-
 
 function App() {
 
