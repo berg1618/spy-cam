@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
     },
     formContainer: {
         width: '80%',
-        // height:'40%',
         marginBottom: 20,
         backgroundColor: '#F2F0F4',
         position: 'relative',

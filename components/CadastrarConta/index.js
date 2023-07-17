@@ -33,7 +33,6 @@ const CadastrarConta = ({ navigation }) => {
 
       navigation.navigate("login");
     } catch (err) {
-      // ### essa msg pode ser substituida por uma mais personalizada
       createTwoButtonAlert("Problemas :-( ", "")
       console.log(err)
     }

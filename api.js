@@ -1,9 +1,6 @@
 import axios from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// import Config from 'react-native-config';
-
-
 // const Url = Config.URL;
 
 

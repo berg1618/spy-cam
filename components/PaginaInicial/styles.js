@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
     fontSize: 40,
     color: '#F2F0F4',
     fontWeight: '800',
-    // marginLeft: 20
   },
   Modal: {
     position: "relative",

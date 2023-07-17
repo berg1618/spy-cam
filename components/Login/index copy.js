@@ -2,7 +2,6 @@ import { Image, Text, View, TextInput, TouchableOpacity, Alert, ScrollView, Safe
 import { styles } from "./styles";
 import React, { useState } from "react";
 import CustomizedBar from "../CustomizedBar/CustomizedBar";
-//import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { storeToken } from "../../api";
 
@@ -33,8 +32,6 @@ const Login = ({ navigation }) => {
       const token = response.data.access_token;
   
       await AsyncStorage.setItem('access_token', token);
-
-      //console.log("Token:", token);
 
       navigation.navigate("pageInicial");
     } catch (error) {
