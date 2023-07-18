@@ -7,12 +7,10 @@ import styles from './style';
 
 const Header = () => {
   const [menuVisible, setMenuVisible] = useState(false);
-  // const [animation] = useState(new Animated.Value(0));
   const animation = useRef(new Animated.Value(0)).current;
 
   const toggleMenu = ({ navigation }) => {
     setMenuVisible(!menuVisible);
-    // console.log(menuVisible)
     Animated.timing(animation, {
       toValue: menuVisible ? 0 : 1,
       duration: 250,
@@ -33,7 +31,6 @@ const Header = () => {
   };
 
 
-  // habilitar a navegação por paginas
   const navigation = useNavigation();
 
 

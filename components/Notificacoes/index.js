@@ -17,9 +17,6 @@ import styles from "./styles";
 
 const moment = require('moment');
 
-
-
-//vai rederizar um item
 const Item = ({item}) => (
     <TouchableOpacity style={styles.botao}>
        <Image style={styles.imgNotificacao}
@@ -32,7 +29,6 @@ const Item = ({item}) => (
     </TouchableOpacity>
   );
 
-//parte principal
 const Notificacoes = () => {
     const navigation = useNavigation();
 
@@ -44,10 +40,6 @@ const Notificacoes = () => {
   
     useEffect(() => {
       const list = async () => {
-        
-        // const newItem = 'item 3';
-        // const newItems = [...items, newItem];
-        // setItems(newItems);
 
         const a = await listarNotificacoes()
 
@@ -74,7 +66,6 @@ const Notificacoes = () => {
         );
       };
 
-      //conteudo da tela de notificacao
       return (
        
         <SafeAreaView style={styles.container}>

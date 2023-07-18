@@ -39,11 +39,9 @@ const styles = StyleSheet.create({
         height: 100,
     },
     textContainer: {
-      // backgroundColor: "#000",
       width: "70%",
     },
     textItem: {
-        // alignSelf: 'auto',
         margin: 10,
         textAlign: 'left',
         marginLeft: 20,

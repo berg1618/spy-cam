@@ -16,24 +16,20 @@ const CadastrarConta = ({ navigation }) => {
 
   const cadastrarUsuario = async (nome, email, senha, confSenha) => {
     try {
-      // exibir alerta caso algum campo esteja vazio
       if (!nome || !email || !senha || !confSenha) {
         return createTwoButtonAlert("", "Preencha todos os campos!")
       }
 
-      // verificar se senha e confirmacao sao iguais
       if (senha !== confSenha) {
         return createTwoButtonAlert("Erro!", "As senhas que você digitou não são iguais!")
       }
 
-      // cadastrar usuario
       const a = await cadastrarUsuarioBanco(nome, email, senha)
         .then((res) => console.log(res))
         .catch((err) => console.log(err))
 
       navigation.navigate("login");
     } catch (err) {
-      // ### essa msg pode ser substituida por uma mais personalizada
       createTwoButtonAlert("Problemas :-( ", "")
       console.log(err)
     }

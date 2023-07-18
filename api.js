@@ -1,13 +1,6 @@
 import axios from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// import Config from 'react-native-config';
-
-
-// const Url = Config.URL;
-
-
-// cole a url que foi gerada pelo ngrok
 const api = axios.create({
   baseURL: 'http://192.168.1.6:8013',
   timeout: 5000,

@@ -2,26 +2,17 @@ import { Image, Text, View, TextInput, TouchableOpacity, Alert, ScrollView, Safe
 import { styles } from "./styles";
 import React, { useState } from "react";
 import CustomizedBar from "../CustomizedBar/CustomizedBar";
-//import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { storeToken } from "../../api";
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  //const [encript, setEncript] = useState("")
 
   const createTwoButtonAlert = (title, msg) =>
     Alert.alert(title ? title : 'Erro de autenticação!', msg, [
       { text: 'OK' },
     ]);
-
-  // #### nao deu certo
-  // const ecriptSenha = (senha) => {
-  // senha.split('').forEach((p) => {
-  //   encript += p.replace(p, "*")
-  // })
-  // }
 
   const fazerLogin = async () => {
     if (!email || !senha) {
@@ -33,8 +24,6 @@ const Login = ({ navigation }) => {
       const token = response.data.access_token;
   
       await AsyncStorage.setItem('access_token', token);
-
-      //console.log("Token:", token);
 
       navigation.navigate("pageInicial");
     } catch (error) {
