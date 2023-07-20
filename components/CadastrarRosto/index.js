@@ -108,7 +108,7 @@ const CadastrarRosto = () => {
               <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center' }}>
                 <Image source={require('../../assets/iconrosto.png')} style={{ width: 80, height: 80 }} />
               </TouchableOpacity>
-              <Text style={styles.anotherTitle}>Maria</Text>
+              <Text style={styles.anotherTitle}>Você</Text>
               <View style={styles.anotherLine} />
             </View>
           </View>
