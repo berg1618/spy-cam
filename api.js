@@ -2,7 +2,7 @@ import axios from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const api = axios.create({
-  baseURL: 'http://192.168.1.6:8013',
+  baseURL: 'https://ad1b-200-137-5-186.ngrok-free.app',
   timeout: 5000,
   headers: { 'X-Custom-Header': 'foobar' }
 })
@@ -71,10 +71,28 @@ const listarPessoas = async () => {
   }
 };
 
+const apagarPerfilBanco = async (pessoaId) => {
+  try {
+    const t = await AsyncStorage.getItem('access_token');
+    const bearerToken = `Bearer ${t}`;
+
+    const req = await api.delete(`/pessoa/${pessoaId}`, {
+      headers: {
+        Authorization: bearerToken,
+      },
+    });
+
+    return req;
+  } catch (err) {
+    return err;
+  }
+};
+
 export {
   cadastrarUsuarioBanco,
   cadastrarPerfilBanco,
   storeToken,
   listarNotificacoes,
-  listarPessoas
+  listarPessoas,
+  apagarPerfilBanco
 }

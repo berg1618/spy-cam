@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { View, FlatList, Text, TouchableOpacity, Image, StyleSheet, ScrollView } from "react-native";
+import { View, FlatList, Text, TouchableOpacity, Image, StyleSheet, ScrollView, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { listarPessoas } from "../../api.js";
+import { listarPessoas, apagarPerfilBanco } from "../../api.js";
 
 const PerfilFlatlist = () => {
   const [pessoa, setPessoa] = useState([]);
@@ -13,21 +13,64 @@ const PerfilFlatlist = () => {
   const getPessoa = async () => {
     try {
       const response = await listarPessoas();
-      setPessoa(response);
+
+      const pessoasSemPontoVirgula = response.dados.map((pessoa) => {
+        const fotosSemPontoVirgula = pessoa.fotos.endsWith(";")
+          ? pessoa.fotos.slice(0, -1)
+          : pessoa.fotos;
+        return {
+          ...pessoa,
+          fotos: fotosSemPontoVirgula,
+        };
+      });
+
+      setPessoa({ dados: pessoasSemPontoVirgula });
     } catch (error) {
-      throw error;
+      console.error("Erro ao buscar pessoas:", error);
     }
   };
 
   const Pessoa = ({ item }) => {
-  
+    const handleDelete = () => {
+      Alert.alert(
+        "Confirmar",
+        "Tem certeza que deseja deletar esta pessoa?",
+        [
+          {
+            text: "Não",
+            style: "cancel",
+          },
+          {
+            text: "Sim",
+            style: "destructive",
+            onPress: async () => {
+              try {
+                await apagarPerfilBanco(item.id);
+                getPessoa();
+              } catch (error) {
+                console.error("Erro ao deletar pessoa:", error);
+              }
+            },
+          },
+        ],
+        { cancelable: false }
+      );
+    };
+
     return (
       <View style={styles.itemContainer}>
-        <TouchableOpacity style={styles.botaoDeletar}>
+        <TouchableOpacity
+          style={styles.botaoDeletar}
+          onPress={handleDelete}
+        >
           <Ionicons name="close-circle" size={16} color="#413C45" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.containerImagem}>
-          <Image source={require('../../assets/iconrosto.png')} style={styles.imagem} />
+          <Image
+            source={{ uri: item.fotos }}
+            style={styles.imagem}
+            onError={() => console.log('Erro ao carregar a imagem')}
+          />
         </TouchableOpacity>
         <ScrollView contentContainerStyle={styles.containerTitulo} horizontal>
           <Text style={styles.titulo}>{item.nome_pessoa}</Text>
@@ -52,6 +95,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 15,
+    marginBottom: 50
   },
   itemContainer: {
     position: "relative",
