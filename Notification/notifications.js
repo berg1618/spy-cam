@@ -1,6 +1,7 @@
 import * as Notifications from 'expo-notifications';
 
 import EventSource from "react-native-sse";
+import { URL } from "@env";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -12,19 +13,20 @@ Notifications.setNotificationHandler({
 
 
 
-const url = 'http://10.48.8.215:8013/registro/watch';
+const url = `${URL}/registro/watch`;
 const source = new EventSource(url);
 
 
 export const CreatNotification = () => {
   source.addEventListener("message", (event) => {
     const data = JSON.parse(event.data);
+    console.log(data.data)
     
-    if (data.length > 0) {
+    if (data.data.length > 0) {
       Notifications.scheduleNotificationAsync({
         content: {
           title: "Alerta!",
-          body: data[0].mensagem,
+          body: data.data[0].mensagem,
         },
         trigger: {
           seconds: 5
