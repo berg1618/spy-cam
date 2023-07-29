@@ -1,15 +1,23 @@
 import React from 'react';
 // import renderer from 'react-test-renderer';
 import {render} from '@testing-library/react-native'
-import Perfil from '../components/Perfil';
+import CadastrarRosto from '../components/CadastrarRosto';
 
 jest.mock(
-  'react-native-vector-icons/FontAwesome',
+  'react-native-vector-icons/Feather',
   () => ""
 );
 
 jest.mock(
-  'react-native-vector-icons/Feather',
+  'expo-image-picker',
+  () => ({
+    requestMediaLibraryPermissionsAsync: jest.fn().mockResolvedValue({ status: 'granted' }),
+  })
+);
+
+
+jest.mock(
+  'react-native-vector-icons/FontAwesome',
   () => ""
 );
 
@@ -22,8 +30,10 @@ jest.mock(
 );
 
 
-describe("teste do componente perfil", () => {
+describe("teste componente de cadastrar Rosto", () => {
   test('Renderizando o componente', () => {
-    render(<Perfil />)
+    render(
+    <CadastrarRosto/>)
+
   });
 })
