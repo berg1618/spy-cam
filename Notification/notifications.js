@@ -11,13 +11,13 @@ Notifications.setNotificationHandler({
 });
 
 
-const url = 'https://64a7-2804-4764-20e-4e00-d0e7-8f8d-3e8-e603.ngrok-free.app/registro/watch';
+
+const url = 'http://10.48.8.215:8013/registro/watch';
 const source = new EventSource(url);
 
 
 export const CreatNotification = () => {
   source.addEventListener("message", (event) => {
-    // console.log('-->',event.data)
     const data = JSON.parse(event.data);
     
     if (data.length > 0) {

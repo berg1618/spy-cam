@@ -37,10 +37,12 @@ const styles = StyleSheet.create({
         width: 100,
         height: 100,
     },
+    textContainer: {
+      width: "70%",
+    },
     textItem: {
-        alignSelf: 'auto',
-        marginTop: 30,
-        textAlign: 'center',
+        margin: 10,
+        textAlign: 'left',
         marginLeft: 20,
     }
   });

@@ -57,10 +57,7 @@ export default class App extends Component {
         alert(response.customButton);
       } else {
         const source = { uri: response.uri };
-
-        // You can also display the image using data:
-        // const source = { uri: 'data:image/jpeg;base64,' + response.data };
-        // alert(JSON.stringify(response));s
+        
         console.log("response", JSON.stringify(response));
         this.setState({
           filePath: response,
