@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
     b: {
         height: '100%',
         backgroundColor: '#413C45'
@@ -42,20 +42,25 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 20,
     },
+    inputContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '65%',
+        borderBottomWidth: 1,
+        borderBottomColor: '#8B8989',
+        marginBottom: 20,
+        paddingBottom: 5
+    },
     icon: {
         left: 2,
         top: 5,
         position: 'relative',
     },
     inputText: {
+        flex: 1,
         marginLeft: 8,
-        position: 'relative',
-        width: 150,
-    },
-    entrada: {
-        flexDirection: 'row',
-        marginBottom: -12,
-        marginTop: 10,
+        color: '#000000',
+        fontSize: 16,
     },
     botao: {
         textAlign: 'center',
@@ -66,7 +71,7 @@ const styles = StyleSheet.create({
         paddingBottom: 6,
         paddingLeft: 45,
         paddingRight: 45,
-        marginTop: 45,
+        marginTop: 15,
         marginBottom: 5,
     },
     mensagem: {
@@ -79,6 +84,4 @@ const styles = StyleSheet.create({
     textButtonNavigation: {
         color: '#FFFFFF'
     }
-})
-
-export default styles
+});

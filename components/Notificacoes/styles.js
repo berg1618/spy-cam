@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
       fontSize: 35,
     },
     botao: {
+      width: "95%",
       backgroundColor: '#F2F0F4',
       margin: 10,
       padding: 10,
@@ -37,11 +38,20 @@ const styles = StyleSheet.create({
         width: 100,
         height: 100,
     },
+    textContainer: {
+      width: "70%",
+    },
     textItem: {
-        alignSelf: 'auto',
-        marginTop: 30,
-        textAlign: 'center',
+        margin: 10,
+        textAlign: 'left',
         marginLeft: 20,
+    },
+    dataNotificacao: {
+      margin: 10,
+      textAlign: 'right',
+      fontSize: 13,
+      fontStyle: 'italic',
+      fontWeight: '500'
     }
   });
 

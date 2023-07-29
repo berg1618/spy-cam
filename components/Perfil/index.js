@@ -3,7 +3,7 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import styles from "./styles";
 import Header from '../Header';
 import CustomizedBar from '../CustomizedBar/CustomizedBar';
-
+import PerfilFlatlist from '../PerfilFlatlist/PerfilFlatlist';
 
 const Perfil = () => {
   return (
@@ -20,8 +20,9 @@ const Perfil = () => {
           <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center' }}>
             <Image source={require('../../assets/iconrosto.png')} style={{ width: 80, height: 80 }} />
           </TouchableOpacity>
-          <Text style={styles.anotherTitle}>Maria</Text>
+          <Text style={styles.anotherTitle}>Você</Text>
           <View style={styles.anotherLine} />
+          <PerfilFlatlist />
         </View>
       </View>
 
