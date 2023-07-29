@@ -91,7 +91,7 @@ const CadastrarRosto = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+       <ScrollView>
         <View>
           <CustomizedBar />
           <Header />

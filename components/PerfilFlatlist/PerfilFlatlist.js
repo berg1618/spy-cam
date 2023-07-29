@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { View, FlatList, Text, TouchableOpacity, Image, StyleSheet, ScrollView, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { listarPessoas, apagarPerfilBanco } from "../../api.js";
+import { URL } from "@env";
 
 const PerfilFlatlist = () => {
   const [pessoa, setPessoa] = useState([]);
+
 
   useEffect(() => {
     getPessoa();
@@ -16,8 +18,8 @@ const PerfilFlatlist = () => {
 
       const pessoasSemPontoVirgula = response.dados.map((pessoa) => {
         const fotosSemPontoVirgula = pessoa.fotos.endsWith(";")
-          ? pessoa.fotos.slice(0, -1)
-          : pessoa.fotos;
+          ? pessoa.fotos.slice(0, -1).split("\\")[2]
+          : pessoa.fotos.split("\\")[2];
         return {
           ...pessoa,
           fotos: fotosSemPontoVirgula,
@@ -29,8 +31,9 @@ const PerfilFlatlist = () => {
       console.error("Erro ao buscar pessoas:", error);
     }
   };
-
+ 
   const Pessoa = ({ item }) => {
+   console.log(`${URL}/${item.fotos}`);
     const handleDelete = () => {
       Alert.alert(
         "Confirmar",
@@ -67,7 +70,7 @@ const PerfilFlatlist = () => {
         </TouchableOpacity>
         <TouchableOpacity style={styles.containerImagem}>
           <Image
-            source={{ uri: item.fotos }}
+            source={{ uri: `${URL}/${item.fotos}` }}
             style={styles.imagem}
             onError={() => console.log('Erro ao carregar a imagem')}
           />

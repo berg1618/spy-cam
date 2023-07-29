@@ -1,15 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
   FlatList,
   SafeAreaView,
   Text,
   TouchableOpacity,
   View,
-  Image,
-  ScrollView
+  Image
 } from 'react-native';
-
-import { listarNotificacoes } from '../../api';
 
 import { useNavigation } from '@react-navigation/native';
 import Header from '../Header';
@@ -22,10 +19,7 @@ const Item = ({item}) => (
        <Image style={styles.imgNotificacao}
         source={require('../../assets/iconrosto.png')}
       />
-      <View style={styles.textContainer}>
-        <Text style={styles.dataNotificacao}>{item.createdAt}</Text>
-        <Text style={styles.textItem}>{item.mensagem}</Text>
-      </View>
+      <Text style={styles.textItem}>{item.title}</Text>
     </TouchableOpacity>
   );
 
@@ -69,18 +63,18 @@ const Notificacoes = () => {
       return (
        
         <SafeAreaView style={styles.container}>
-              <Header/>
-              <View style={styles.mainnotificacao}>
-              <Text style={styles.titleApp}>Notificações</Text>
-                  <FlatList
-                  data={dados}
-                  renderItem={renderItem}
-                  keyExtractor={item => item.id}
-                  extraData={selectedId}
-              />
-              </View>
-           
-        </SafeAreaView> 
+            <Header/>
+            <View style={styles.mainnotificacao}>
+            <Text style={styles.titleApp}>Notificações</Text>
+                <FlatList
+                data={DATA}
+                renderItem={renderItem}
+                keyExtractor={item => item.id}
+                extraData={selectedId}
+            />
+            </View>
+         
+        </SafeAreaView>
       );
 }
 
