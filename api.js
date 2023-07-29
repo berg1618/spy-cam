@@ -1,7 +1,7 @@
 import axios from "axios"
 
 // import Config from 'react-native-config';
-
+console.log("nada");
 
 // const Url = Config.URL;
 
