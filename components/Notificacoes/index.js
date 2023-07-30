@@ -1,12 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   FlatList,
   SafeAreaView,
   Text,
   TouchableOpacity,
   View,
-  Image
+  Image,
+  ScrollView
 } from 'react-native';
+
+import { listarNotificacoes } from '../../api';
 
 import { useNavigation } from '@react-navigation/native';
 import Header from '../Header';
@@ -14,15 +17,22 @@ import styles from "./styles";
 
 const moment = require('moment');
 
+
+
+//vai rederizar um item
 const Item = ({item}) => (
     <TouchableOpacity style={styles.botao}>
        <Image style={styles.imgNotificacao}
         source={require('../../assets/iconrosto.png')}
       />
-      <Text style={styles.textItem}>{item.title}</Text>
+      <View style={styles.textContainer}>
+        <Text style={styles.dataNotificacao}>{item.createdAt}</Text>
+        <Text style={styles.textItem}>{item.mensagem}</Text>
+      </View>
     </TouchableOpacity>
   );
 
+//parte principal
 const Notificacoes = () => {
     const navigation = useNavigation();
 
@@ -34,6 +44,10 @@ const Notificacoes = () => {
   
     useEffect(() => {
       const list = async () => {
+        
+        // const newItem = 'item 3';
+        // const newItems = [...items, newItem];
+        // setItems(newItems);
 
         const a = await listarNotificacoes()
 
@@ -60,21 +74,22 @@ const Notificacoes = () => {
         );
       };
 
+      //conteudo da tela de notificacao
       return (
        
         <SafeAreaView style={styles.container}>
-            <Header/>
-            <View style={styles.mainnotificacao}>
-            <Text style={styles.titleApp}>Notificações</Text>
-                <FlatList
-                data={DATA}
-                renderItem={renderItem}
-                keyExtractor={item => item.id}
-                extraData={selectedId}
-            />
-            </View>
-         
-        </SafeAreaView>
+              <Header/>
+              <View style={styles.mainnotificacao}>
+              <Text style={styles.titleApp}>Notificações</Text>
+                  <FlatList
+                  data={dados}
+                  renderItem={renderItem}
+                  keyExtractor={item => item.id}
+                  extraData={selectedId}
+              />
+              </View>
+           
+        </SafeAreaView> 
       );
 }
 

@@ -1,7 +1,8 @@
 import * as Notifications from 'expo-notifications';
 
 import EventSource from "react-native-sse";
-import { URL } from "@env";
+// import { URL } from "@env";
+import {URL} from '../env'
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -11,10 +12,9 @@ Notifications.setNotificationHandler({
   }),
 });
 
-const utl_api = URL
 
 
-const url = `${utl_api}/registro/watch`;
+const url = `${URL}/registro/watch`;
 const source = new EventSource(url);
 
 

@@ -1,11 +1,12 @@
 import axios from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { URL } from "@env";
+// import { URL } from "@env";
+import { URL } from "./env";
 
-const utl_api = URL
+
 
 const api = axios.create({
-  baseURL: `${utl_api}`,
+  baseURL: `${URL}`,
   timeout: 5000,
   headers: { 'X-Custom-Header': 'foobar' }
 })
