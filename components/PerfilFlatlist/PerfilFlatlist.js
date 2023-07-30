@@ -4,6 +4,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { listarPessoas, apagarPerfilBanco } from "../../api.js";
 import { URL } from "@env";
 
+const utl_api = URL
+
 const PerfilFlatlist = () => {
   const [pessoa, setPessoa] = useState([]);
 
@@ -70,7 +72,7 @@ const PerfilFlatlist = () => {
         </TouchableOpacity>
         <TouchableOpacity style={styles.containerImagem}>
           <Image
-            source={{ uri: `${URL}/${item.fotos}` }}
+            source={{ uri: `${utl_api}/${item.fotos}` }}
             style={styles.imagem}
             onError={() => console.log('Erro ao carregar a imagem')}
           />

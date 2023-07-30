@@ -11,9 +11,10 @@ Notifications.setNotificationHandler({
   }),
 });
 
+const utl_api = URL
 
 
-const url = `${URL}/registro/watch`;
+const url = `${utl_api}/registro/watch`;
 const source = new EventSource(url);
 
 
