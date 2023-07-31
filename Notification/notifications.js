@@ -1,7 +1,8 @@
 import * as Notifications from 'expo-notifications';
 
 import EventSource from "react-native-sse";
-import { URL } from "@env";
+// import { URL } from "@env";
+import {URL} from '../env'
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
