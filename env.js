@@ -1,1 +1,1 @@
-export const URL = 'https://c1f6-2804-4764-20e-4e00-8dbb-e446-21c2-d1b2.ngrok-free.app'
+export const URL = "http://10.48.8.250:8013"

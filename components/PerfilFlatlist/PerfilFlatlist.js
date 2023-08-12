@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { View, FlatList, Text, TouchableOpacity, Image, StyleSheet, ScrollView, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { listarPessoas, apagarPerfilBanco } from "../../api.js";
-import { URL } from "@env";
+// import { URL } from "@env";
+import {URL} from '../../env.js'
 
 const utl_api = URL
 
@@ -20,8 +21,8 @@ const PerfilFlatlist = () => {
 
       const pessoasSemPontoVirgula = response.dados.map((pessoa) => {
         const fotosSemPontoVirgula = pessoa.fotos.endsWith(";")
-          ? pessoa.fotos.slice(0, -1).split("\\")[2]
-          : pessoa.fotos.split("\\")[2];
+          ? pessoa.fotos.slice(17, -1)
+          : pessoa.fotos.slice(17, -1);
         return {
           ...pessoa,
           fotos: fotosSemPontoVirgula,
@@ -117,8 +118,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   imagem: {
-    width: 80,
-    height: 80,
+    margin: 15,
+    width: 70,
+    height: 70,
+    borderRadius: 15,
   },
   containerTitulo: {
     flexGrow: 1,
